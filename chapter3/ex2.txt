@@ -1,0 +1,6 @@
+The following are invalid vairable names:
+
+Int		reserved word
+char	reserved word
+6_05	must start with an underscore or a letter
+A$		$ is not a valid  character

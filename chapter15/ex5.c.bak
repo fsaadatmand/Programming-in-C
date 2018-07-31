@@ -1,0 +1,45 @@
+/* Program to print m to n columns of each line in a file */
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{
+	char fileName[64];
+	FILE *inFile;
+	char line[81];
+	int m, n; 
+	int field = 7;
+	char *lnPtr;
+
+	/* Ask user of file name */
+	printf("Enter name of file to be used: ");
+	scanf("%63s", fileName);
+
+	/* Open file */
+	if ((inFile = fopen(fileName, "r")) == NULL) {
+		printf("Can't open %s for reading.\n", fileName);
+		return 1;
+	}
+	
+	/* Ask user for the values of m and n */
+	printf("Enter a value of m: ");
+	scanf("%i", &m);
+
+	printf("Enter the value of n: ");
+	scanf("%i", &n);
+
+	
+	while (!feof(inFile))
+		if (lnPtr != NULL) {
+			fgets(line, 81, inFile);       /* Extract lines */
+			lnPtr = line;       /* set pointer to the beginning of the line */
+			lnPtr += m;         /* Increment pointer's position by m columns */
+			printf("%.*s\n", (n - m) + 1, lnPtr);
+		}	
+
+	/* Close open files */
+		fclose(inFile);
+		
+	return 0;
+}

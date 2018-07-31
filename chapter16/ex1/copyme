@@ -1,0 +1,5 @@
+This is a test of the file copy program
+that copies one file to another. It uses
+command-line arguments instead of user input
+for the file name to be copied and the
+name of the destination file.

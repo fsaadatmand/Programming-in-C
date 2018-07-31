@@ -1,0 +1,3 @@
+The output of the porgram give in exercise 5 is the following:
+
+d = d

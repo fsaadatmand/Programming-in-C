@@ -1,0 +1,8 @@
+The following are invalid constants:
+
+98.6F		F is an invalid letter.
+0x10.5		Hexadecimal values don't take floating points
+1.2Fe-7		The F should be at the end of the constant.
+0X0G1		G is an invalid hexadecimal character.
+17777s		s is an invalid letter.
+15,000		comma's are not allowed.

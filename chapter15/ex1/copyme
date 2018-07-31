@@ -1,0 +1,3 @@
+This is a test of the file copy program
+that we have just developed using the
+fopen, fclose, getc, and putc functions.

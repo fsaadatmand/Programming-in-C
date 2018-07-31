@@ -1,0 +1,14 @@
+Locate the system header files <stdio.h>, <limits.h> and <float.h> on your
+system and exlpore /usr/include directory.
+
+On UNIX-based systems use the folloing commands to search for the above files:
+
+whereis filename
+locate filename
+
+To explore the content of /usr/include directory use:
+
+ls -lh /usr/include
+
+you can pipe the outcome into the grep command to limit your search criteria.
+For example, ls -lh /user /usr/include | grep -i "std"

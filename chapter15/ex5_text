@@ -1,0 +1,6 @@
+This is a test file of the print m through n
+columns program. Experement with different
+values of m and n. Remember, columns numbers
+start with 1, which is the first column and
+end with 81, which is the conventional limit 
+of chars per line to be printed at the terminal.

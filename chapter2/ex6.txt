@@ -1,0 +1,4 @@
+The output of exercise 6 is the following:
+
+The result is 95
+
