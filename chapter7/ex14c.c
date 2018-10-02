@@ -29,7 +29,7 @@ void displayMatrix(int nRows, int nColumns, int matrix [nRows][nColumns])
 		for (column = 0; column < nColumns; ++column)
 			printf("%5i", matrix[row][column]);
 
-		printf("\n");
+	printf("\n");
 }
 
 int main(void)
@@ -38,7 +38,7 @@ int main(void)
                           int b[nColumns][nRows]);
 	void diplayMatrix(int nRows, int nColumns, int matrix[nRows][nColumns]);
 
-	transposeMatrix 4, 5, M, N);
+	transposeMatrix(4, 5, M, N);
 	displayMatrix(5, 4, N);
 
 	return 0;
