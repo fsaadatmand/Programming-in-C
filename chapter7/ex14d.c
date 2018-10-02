@@ -14,7 +14,7 @@ void sort(int a[], int n, char s)
 {
 	int i, j, temp;
 
-	if (s == 'a')
+	if (s == 'a') {
 		for (i = 0; i < n - 1; ++i)
 			for (j = i + 1; j < n; ++j)
 				if (a[i] > a[j]) {
@@ -22,7 +22,7 @@ void sort(int a[], int n, char s)
 					a[i] = a[j];
 					a[j] = temp;
 				}
-	else if (s == 'd')
+	} else if (s == 'd') {
 		for (i = 0; i < n - 1; ++i)
 			for (j = i + 1; j < n; ++j)
 				if (a[i] < a[j]) {
@@ -30,7 +30,7 @@ void sort(int a[], int n, char s)
 					a[i] = a[j];
 					a[j] = temp;
 				}
-	else
+	} else
 		printf("\n\n %c is an invalid sort criteria\n", s);
 }
 
