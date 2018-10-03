@@ -1,8 +1,12 @@
 /* 
- * Program to extract a each typed-in digit of an integer and display it
- * in English. For example, 932 to nine three two.  Attempt #2. This is a
- * cleaner and (I believe) a more efficient code. It also handles numbers
- * ending with zeros, such as 100.
+ * 6. Write a program that takes an integer keyed in from the terminal and
+ * extracts and displays each digit of the integer in English. So, if the user
+ * types in 932, the program should display
+ *		nine three two Remember to display
+ * “zero” if the user types in just a 0. (Note: This exercise is a hard one!)
+ *
+ * Attempt #2: This, I believe, is a cleaner and more efficient implementation.
+ * It can also handles numbers ending with zeros, such as 100.
  * by Faisal Saadatmand
  */
 

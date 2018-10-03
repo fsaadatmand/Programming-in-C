@@ -1,7 +1,7 @@
 /* 
- * Program to convert any integer to another base using global variables.
- * The program will ask for the number, base as well as the bit representation.
- * For negative values, a value of zero for a number will terminate the program.
+ * 16. Modify Program 7.14 so that the user can convert any number of integers.
+ * Make provision for the program to terminate when a zero is typed in as the
+ * value of number to be converted. (alternate version)
  * By Faisal Saadatmand
  */
 

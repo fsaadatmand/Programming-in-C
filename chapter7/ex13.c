@@ -1,7 +1,8 @@
 /* 
- * Sorting an array of integers into ascending order (Program 7.12)
- * modified to sort by ascending or descending order
- * depending on the value of the argument s in function sort
+ * 13. Modify the sort() function from Program 7.12 to take a third argument
+ * indicating whether the array is to be sorted in ascending or descending
+ * order. Then modify the sort() algorithm to correctly sort the array into the
+ * indicated order.
  * By Faisal Saadatmand
  */
 

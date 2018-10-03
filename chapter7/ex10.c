@@ -1,6 +1,6 @@
 /* 
- * function (prime) that returns 1 if its argument is a prime number
- * and returns 0 otherwise.
+ * 10. Write a function prime() that returns 1 if its argument is a prime
+ * number and returns 0 otherwise.
  * By Faisal Saadatmand
  */
 
@@ -30,8 +30,6 @@ int prime(int number)
 
 int main (void)
 {
-	int i; 
-
 	int number;
 	int prime(int number);
 	

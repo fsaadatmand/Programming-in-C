@@ -1,8 +1,10 @@
 /* 
- * Program to reverse the digits of a number 
- * if a negative number is entered, the output number will have
- * a minus sign at the begning of the reversed number and between each digit.
- * For example, if -1234 was entered, the output will be -4-3-2-1 
+ * 10. What would happen if you typed a negative number into Program 4.8? Try
+ * it and see.
+ * Answer: if a negative number is entered, the output number will have a minus
+ * sign at the begning of the reversed number and between each digit. For
+ * example, if -1234 was entered, the output will be -4-3-2-1 
+ * By Faisal Saadatmand
  */
 
 #include <stdio.h>

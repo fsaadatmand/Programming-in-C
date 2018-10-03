@@ -1,4 +1,14 @@
-/* strings and pointers with printf function */
+/* 
+ * 12. Given the following declarations:
+ *		char  *message = "Programming in C is fun\n";
+ *		char  message2[] = "You said it\n";
+ *		char  *format  = "x = %i\n";
+ *		int   x = 100;
+ * determine whether each printf() call from the following sets is valid and
+ * produces the same output as other calls from the set.
+ *
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 

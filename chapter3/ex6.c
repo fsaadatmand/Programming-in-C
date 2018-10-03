@@ -1,5 +1,7 @@
 /*
- * Programme to evaluate the polynomial 3x^3 - 5x^2 + 6, for x = 2.55.
+ * 6. Write a program to evaluate the polynomial shown here:
+ *        3x^3 - 5x^2 + 6, for x = 2.55.
+ *    for x = 2.55.
  * by Faisal Saadatmand
  */
 
@@ -14,6 +16,3 @@ int main(void)
 
 	return 0;
 }
-
-
-

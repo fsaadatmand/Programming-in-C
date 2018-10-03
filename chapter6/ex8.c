@@ -1,10 +1,10 @@
 /*
- * Progam that displays all prime numbers between 1 and n = 150
- * using Sieve of Eratosthenes algorithm.  (Ver. 2)
+ * 8. Find out if your compiler supports variable-length arrays. If it does,
+ * write a small program to test the feature out.
  *
- * This version uses an array (Prime) to store the result and a variable 
- * length array to produce a clean output (without zeroes) for printf.
- * See steps 7 and 8.
+ * This a modified version of ex6. This version uses an array (Prime) to store
+ * the result and a variable  length array to produce a clean output (without
+ * zeroes) for printf. See steps 7 and 8.
  *
  * By Faisal Saadatmand
  */

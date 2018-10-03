@@ -1,4 +1,0 @@
-The output of exercise 3 program is the following:
-
-Testing.......1...2..3
-

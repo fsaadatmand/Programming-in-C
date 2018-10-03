@@ -1,4 +1,7 @@
-/* Preditc the output of this program */
+/*
+ * 5. What output do you expect from the following program?
+ * Answer: this program generate numbers according to the Fibonacci sequence.
+ */
 
 #include <stdio.h>
 

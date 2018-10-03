@@ -1,5 +1,6 @@
 /*
- * Program to calculate the average of an arry of 10 floating-pont values
+ * 4. Write a program that calculates the average of an array of 10
+ * floating-point values.
  * By Faisal Saadatmand
  */
 

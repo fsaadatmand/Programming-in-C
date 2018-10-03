@@ -1,16 +1,20 @@
 /* 
- * Program 4.9 to reverse the digits of a number. (Ver. 2.1)
-* Fix negative digits input (alternative version)
-* This version uses two if statements rather than the else-if construct. 
-* It is has a 1 line of code less but I think it is also a little harder to read and debug.
-*/
-
+ * 5. You developed Program 4.9 to reverse the digits of an integer typed in
+ * from the terminal. However, this program does not function well if you type
+ * in a negative number. Find out what happens in such a case and then modify
+ * the program so that negative numbers are correctly handled. For example, if
+ * the number −8645 is typed in, the output of the program should be 5468−.
+ *
+ * This version uses two if statements rather than the else-if construct. It
+ * has a 1 line of code less.
+ * By Faisal Saadatmand
+ */
 #include <stdio.h>
 
 int main()
 {
 	int  number,  right_digit;
-	char minus_sign, zero;
+	char minus_sign;
 
 	printf("Enter your number.\n");
 	scanf("%i", &number);

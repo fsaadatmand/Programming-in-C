@@ -1,8 +1,11 @@
 /* 
- * Counting words. This version handle words with apostraphe
- * and counts positive or negative sequences of numbers
- * as words, with or without embeded commas or periods.
- * */
+ * 3. The countWords() function from Programs 9.7 and 9.8 incorrectly counts a
+ * word that contains an apostrophe as two separate words.  Modify this
+ * function to correctly handle this situation. Also, extend the function to
+ * count a sequence of positive or negative numbers, including any embedded
+ * commas and periods, as a single word.
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 #include <stdbool.h>

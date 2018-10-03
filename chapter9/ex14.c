@@ -1,5 +1,8 @@
 /*
- * Function to convert integar value into a character string 
+ * 14. Write a function called intToStr() that converts an integer value into a
+ * character string. Be certain the function handles negative integers
+ * properly.
+ *
  * By Faisal Saadatmand
  */
 
@@ -12,7 +15,7 @@ void intToStr(int intValue, char string[])
 	char reversedString[40];
 	bool negativeNumber = false;
 	
-	if (intValue < 0) {                  /* detect negative value integars */
+	if (intValue < 0) {                  /* detect negative value integers */
 		intValue = -intValue;
 		negativeNumber = true;
 	}
@@ -45,7 +48,7 @@ int main(void)
 	int intValue;
 	char str[40];
 
-	printf("Enter integar value: ");
+	printf("Enter integer value: ");
 	scanf("%i", &intValue);
 
 	intToStr(intValue, str);

@@ -1,17 +1,21 @@
 /* 
- * Program to extract each typed-in digit of the integer and display it
- * in English. For example, 932 to nine three two. Attempt #1
- * While this code works, I wrote a better way that also
- * can handle numbers ending with zeros. see ex6a.c
+ * 6. Write a program that takes an integer keyed in from the terminal and
+ * extracts and displays each digit of the integer in English. So, if the user
+ * types in 932, the program should display
+ *		nine three two Remember to display
+ * “zero” if the user types in just a 0. (Note: This exercise is a hard one!)
+ *
+ * Attempt #1: while this code works, I wrote a slightly better version that can
+ * also handle numbers ending with zeros. See ex6a.c
  * By Faisal Saadatmand
-  */
+ */
 
 #include <stdio.h>
 
 int main(void)
 {
-	int number, number_temp, number_of_digits, right_number, multiplier, reversed_number, n;
-	char english_word;
+	int number, number_temp, number_of_digits, right_number, multiplier,
+		reversed_number, n;
 
 	printf("Enter a number: ");
 	scanf("%d", &number);
@@ -22,8 +26,8 @@ int main(void)
 	reversed_number = 0;
 
 /* The role of the initial loop is twofold: 
- * 1. to count the number of digits in the typed-in number; 
- * 2. calculate a  multiplier variable based on the number of digits. */ 
+ * 1. To count the number of digits in the typed-in number; 
+ * 2. Calculate a  multiplier variable based on the number of digits. */ 
 	do {
 		right_number = number_temp % 10;
 		number_temp /= 10;
@@ -44,7 +48,7 @@ int main(void)
 		multiplier /= 10;
 	}
 
-/* final loop to reads and prints the each digit from the reveresed number--from right to left--and converts it to the equivalent English words, which will give us the desired result */
+/* final loop to reads and prints the each digit from the reversed number--from right to left--and converts it to the equivalent English words, which will give us the desired result */
 	do {
 		right_number = reversed_number % 10;
 
@@ -75,4 +79,3 @@ int main(void)
 
 	return 0;
 }
-

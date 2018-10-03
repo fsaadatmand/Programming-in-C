@@ -1,4 +1,9 @@
-/* Dictionary lookup program using binary search */
+/*
+ * 10. Write a function called dictionarySort() that sorts a dictionary, as
+ * defined in Programs 9.9 and 9.10, into alphabetical order.
+ *
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 
@@ -86,7 +91,6 @@ int main(void)
 		  { "aigrette", "an ornamental cluster of feathers"      } };
 
 	int  i, entries = 10;
-	char word[15];
 
 	dictionarySort(dictionary, entries);
 

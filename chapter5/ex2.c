@@ -1,4 +1,10 @@
-/* Program to test if a digit is evenly divisable by another digit */
+/*
+ * 2. Write a program that asks the user to type in two integer values at the
+ * terminal. Test these two numbers to determine if the first is evenly
+ * divisible by the second, and then display an appropriate message at the
+ * terminal.
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 

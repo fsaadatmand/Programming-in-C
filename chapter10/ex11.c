@@ -1,7 +1,11 @@
 /*
- * Revising Program 8.2 to determine tomorrow's date, version 3 
- * (dateUpdate function using pointers)
- * */
+ * 11. Given the definition of a date structure as defined in this chapter,
+ * write a function called dateUpdate() that takes a pointer to a date
+ * structure as its argument and that updates the structure to the following
+ * day (see Program 8.4).
+ *
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -56,7 +60,7 @@ bool isLeapYear(struct date d)
 	else
 		leapYearFlag = false;    /* Not a leap year */
 	
-		return leapYearFlag;
+	return leapYearFlag;
 }
 
 int main(void)

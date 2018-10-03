@@ -1,5 +1,7 @@
 /*
- * A program to generate and print a table of the first 10 factorials
+ * 4. The factorial of an integer n, written n!, is the product of the
+ *     5!  =  5 x 4 x 3 x 2 x 1  =  120
+ * Write a program to generate and print a table of the first 10 factorials.
  * by Faisal Saadatmand
  */
 
@@ -18,6 +20,5 @@ int main(void)
 		printf("%2i! = %d \n", i, factorial);
 		factorial = 1;
 	}
-
 	return 0;
 }

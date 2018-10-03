@@ -1,4 +1,13 @@
-/* calculating the square root of a Number - modify citeria of the while loop */
+/*
+ * 5. The criteria used for termination of the loop in the squareRoot()
+ * function of Program 7.8 is not suitable for use when computing the square
+ * root of very large or very small numbers. Rather than comparing the
+ * difference between the value of x and the value of guess2, the program
+ * should compare the ratio of the two values to 1. The closer this ratio gets
+ * to 1, the more accurate the approximation of the square root.
+ * Modify Program 7.8 so this new termination criteria is used.
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 
@@ -7,7 +16,6 @@ float absoluteValue(float x)
 {
 	if (x < 0)
 		x = -x;
-
 	return (x);
 }
 
@@ -19,9 +27,7 @@ double squareRoot(float x, const float epsilon)
 
 	do {
 		guess = (x / guess + guess) / 2.0;
-
 	} while (absoluteValue((guess * guess) / x) >= epsilon); 
-
 	return guess;
 }
 

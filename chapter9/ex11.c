@@ -1,4 +1,10 @@
-/* Function to convert a string to an integer */
+/*
+ * 11. Extend the strToInt() function from Program 9.11 so that if the first
+ * character of the string is a minus sign, the value that follows is taken as
+ * a negative number.
+ *
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 #include <stdbool.h>

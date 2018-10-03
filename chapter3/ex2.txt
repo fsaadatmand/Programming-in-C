@@ -1,3 +1,9 @@
+2. Which of the following are invalid variable names? Why?
+Int            char     6_05
+Calloc         Xx       alpha_beta_routine
+floating       _1312    z
+ReInitialize   _        A$
+
 The following are invalid vairable names:
 
 Int		reserved word

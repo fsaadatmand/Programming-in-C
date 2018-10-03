@@ -1,6 +1,7 @@
 /* 
- * Modified Program 4.5 to allow user to type in the number of triangular numbers 
- * to be calculated 
+ * 8. Program 4.5 allows the user to type in only five different numbers.
+ * Modify that program so that the user can type in the number of triangular
+ * numbers to be calculated.
  * By Faisal Saadatmand
  */
 
@@ -25,7 +26,6 @@ int main(void)
 
 		printf("Triangular number %i is %i\n\n", number, triangularNumber);
 	}
-
 	return 0;
 }
 

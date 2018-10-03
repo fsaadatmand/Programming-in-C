@@ -1,4 +1,9 @@
-/* Program 4.4, asking the user for input -- replace for with while loop  */
+/* 
+ * 9. Rewrite Programs 4.2 through 4.5, replacing all uses of the for statement
+ * with equivalent while statements. Run each program to verify that both
+ * versions are identical.
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 

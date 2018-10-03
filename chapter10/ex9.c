@@ -1,4 +1,9 @@
-/* Reading lines of Data. Using pointers in readLine function */
+/*
+ * 9. Rewrite the readLine() function from Chapter 9 so that it uses a
+ * character pointer rather than an array.
+ *
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 
@@ -28,6 +33,5 @@ int main(void)
 		readLine(line);
 		printf("%s\n", line);
 	}
-
 	return 0;
 }

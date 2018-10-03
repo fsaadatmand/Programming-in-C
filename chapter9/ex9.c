@@ -1,7 +1,20 @@
 /* 
- * Function to replace string s1 inside source with character string s2. (Ver. 2) 
+ * 9. You can extend even further the usefulness of the replaceString()
+ * function from the preceding exercise if you have it return a value that
+ * indicates whether the replacement succeeded, which means that the string to
+ * be replaced was found inside the source string. So, if the function returns
+ * true if the replacement succeeds and false if it does not, the loop
+ *
+ *		do
+ *		stillFound = replaceString (text, " ", "");
+ *		while  ( stillFound );
+ *
+ * could be used to remove all blank spaces from text, for example.
+ * Incorporate this change into the replaceString() function and try it with
+ * various character strings to ensure that it works properly.
+ *
  * by Faisal Saadatmand
- * */
+ */
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -16,13 +29,13 @@ int findString(char source[], const char search[])
 		if (source[i] == search[j]) {
 			matchFound = true;
 			position = i;
-			while (search[j] != '\0' && matchFound) {
-				if (search[j] != source[i]) {
+			while (search[j] != '\0' && matchFound)
+				if (search[j] != source[i])
 					matchFound = false;
-				} else
+				else {
 					++j;
 					++i;
-			}
+				}
 			if (matchFound == true)
 				return position;          /* found a match */
 			else {                        /* reset indexes for the outter loop */

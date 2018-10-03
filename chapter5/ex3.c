@@ -1,8 +1,10 @@
 /* 
- * Program that accepts two integer values typed in by the user and
-* Display the result of dividing the first integer by the second, to three-
-* decimal-place accuracy.  It also checks for division by zero.
-*/
+ * 3. Write a program that accepts two integer values typed in by the user.
+ * Display the result of dividing the first integer by the second, to three-
+ * decimal-place accuracy. Remember to have the program check for division by
+ * zero.
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 

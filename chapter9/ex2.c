@@ -1,9 +1,15 @@
 /* 
- * Testing strings for equality 
- * while (s1[i] == s2[i] && s1[i] != '\0' could replace
- * the while statetment because both strings must be of equal length.
- * The proceeding if statement verfies that and sets the areEqual
- * flag appropriately if not. 
+ * 2. Why could you have replaced the while statement of the equalStrings()
+ * function of Program 9.4 with the statement
+ *
+ * while (s1[i] == s2[i] && s1[i] != '\0')
+ * to achieve the same results?
+ *
+ * Answer: because both strings must be of equal length. The proceeding if
+ * statement verfies such a condition and sets the areEqual flag appropriately
+ * if they were not.
+ *
+ * By Faisal Saadatmand
  */
 
 #include <stdio.h>

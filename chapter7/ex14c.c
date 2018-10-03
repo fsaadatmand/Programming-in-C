@@ -1,6 +1,7 @@
-/*
- * Program to transpose array M with i rows, j columns into array N with j rows, i columns,
- * using functions and variable-length multidimencional arrays. Global variable version.
+/* 
+ * 14. Rewrite the functions developed in the last four exercises to use global
+ * variables instead of arguments. For example, the preceding exercise should
+ * now sort a globally defined array.
  * By Faisal Saadatmand
  */
 
@@ -28,7 +29,6 @@ void displayMatrix(int nRows, int nColumns, int matrix [nRows][nColumns])
 	for (row = 0; row < nRows; ++row)
 		for (column = 0; column < nColumns; ++column)
 			printf("%5i", matrix[row][column]);
-
 	printf("\n");
 }
 

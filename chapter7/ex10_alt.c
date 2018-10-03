@@ -1,17 +1,12 @@
-/*
- * Progam that displays all prime numbers between 1 and n = 150
- * using Sieve of Eratosthenes algorithm.  (Ver. 2)
- *
- * This version uses an array (Prime) to store the result and a variable 
- * length array to produce a clean output (without zeroes) for printf.
- * See steps 7 and 8.
- *
+/* 
+ * 10. Write a function prime() that returns 1 if its argument is a prime
+ * number and returns 0 otherwise. This version uses Sieve of Eratosthenes
+ * algorithm.
  * By Faisal Saadatmand
  */
 
 #include <stdio.h>
 #include <stdbool.h>
-
 
 int prime(const int number) 
 {
@@ -20,7 +15,6 @@ int prime(const int number)
 	bool isPrime;
 
 	counter = 0;
-
 	for (i = 2; i <= n; ++i) {
 		P[i] = 0;
 		N[i] = i;
@@ -31,53 +25,46 @@ int prime(const int number)
 	while (i < n) {
 		if (P[i] == 0) 
 			Prime[i] = N[i];
-
-		for (j = 2; j <= n; ++j) {	
+		for (j = 2; j <= n; ++j)	
 			if (i * j <= n)
 				P[i*j] = 1;
-		}
-	++i;
+		++i;
 	}
 
 	for (i = 2; i <= n; ++i) {
 		if (Prime[i] == 0) 
 				++counter;
 		else if (Prime[i] != 0 && counter != 0) {
-			for (x = i; x <= n; ++x) {
+			for (x = i; x <= n; ++x)
 				Prime[x-counter] = Prime[x];
-			}
 			i -= counter;
 			counter = 0;
 		}
 	}
 
-/* Step 8: Create a variable length array Prime2 to eliminate the zeroes at the end of Prime array. */
-
+/* Step 8: Create a variable length array Prime2 to eliminate the zeroes at the
+ * end of Prime array. */
 	x = 2;
 	while (Prime[x] != 0)
 		++x;
 	
 	unsigned int Prime2[x];
-
 	for (i = 2; i <= x; ++i)
 		Prime2[i]  = Prime[i];
 
 /* Print the value of elements in Prime2 */
-
 	isPrime = true;
 
-	for (i = 2; i < x ; ++i) {
-		if (Prime2[i] == number) {
+	for (i = 2; i < x ; ++i)
+		if (Prime2[i] == number)
 			isPrime = true;
-		} else
+		else
 			isPrime = false;
-	}
 
 	if (isPrime == true)
 		return 1;
 
-	else if (isPrime == false)
-		return 0;
+	return 0;
 }
 
 int main(void)

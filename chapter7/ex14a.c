@@ -1,6 +1,7 @@
 /* 
- * function (prime) that returns 1 if its argument is a prime number
- * and returns 0 otherwise. Using gloable variables.
+ * 14. Rewrite the functions developed in the last four exercises to use global
+ * variables instead of arguments. For example, the preceding exercise should
+ * now sort a globally defined array.
  * By Faisal Saadatmand
  */
 
@@ -26,7 +27,6 @@ int prime(int number)
 				return 0;
 			else
 				isPrime = true;	
-
 	return isPrime;
 }
 

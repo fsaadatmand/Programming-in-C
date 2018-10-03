@@ -1,6 +1,8 @@
 /* 
- * Determine the purpose of the decimal point before the field width
- * in printf function.
+ * 7. A decimal point before the field width specification in a printf()
+ * statement has a special purpose. Try to determine its purpose by typing in
+ * and running the following program. Experiment by typing in different values
+ * each time you are prompted.
  */
 
 #include <stdio.h>

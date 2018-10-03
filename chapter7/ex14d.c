@@ -1,7 +1,7 @@
 /* 
- * Sorting an array of integers into ascending order (Program 7.12)
- * modified to sort by ascending or descending order
- * depending on the value of the argument s in function sort
+ * 14. Rewrite the functions developed in the last four exercises to use global
+ * variables instead of arguments. For example, the preceding exercise should
+ * now sort a globally defined array.
  * By Faisal Saadatmand
  */
 

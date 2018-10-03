@@ -1,5 +1,6 @@
 /*
- * A programme to display a table of n and n^2, where n is 1 to 10.
+ * 2. Write a program to generate and display a table of n and n2, for integer
+ * values of n ranging from 1 to 10. Be certain to print appropriate column headings.
  * by Faisal Saadatmand
  */
 
@@ -17,6 +18,5 @@ int main(void)
 			nxn = n * n;
 			printf("%2i\t%3i\n", n, nxn);
 		}
-
 	return 0;
 }

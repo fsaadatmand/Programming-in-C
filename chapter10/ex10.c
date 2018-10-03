@@ -1,6 +1,7 @@
 /*
- * Dictionary lookup program using binary search. compareStrings function
- * using pointers instead of arrays.
+ * 10. Rewrite the compareStrings() function from Chapter 9 to use character
+ * pointers instead of arrays.
+ *
  * by Faisal Saadatmand
  */
 
@@ -48,7 +49,6 @@ int lookup(const struct entry dictionary[], const char search[],
 		else 
 			return mid;       /* found it */
 	}
-
 	return -1;                /* not found */
 }
 

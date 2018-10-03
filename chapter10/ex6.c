@@ -1,4 +1,13 @@
-/* InsertEntry and removeEntry for doubly linked list. By Faisal Saadatmand */
+/*
+ * 6. Develop insertEntry() and removeEntry() functions for a doubly linked
+ * list that are similar in function to those developed in previous exercises
+ * for a singly linked list. Why can your removeEntry() function now take as
+ * its argument a direct pointer to the entry to be removed from the list?
+ *
+ * Answer: 
+ *
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 
@@ -9,7 +18,7 @@ struct entry {
 };
 
 /* Function to insert element in a list after the element pointed to */
-void insertEntry (struct entry *elementIn, struct entry *location, int position)
+void insertEntry (struct entry *elementIn, struct entry *location)
 {	
 	if (location->next != (struct entry *) 0) {
 		elementIn->next = location->next;
@@ -36,7 +45,7 @@ void removeEntry(struct entry *element)
 int main(void) 
 {
 	void insertEntry (struct entry *elementIn, 
-			struct entry *location, int position), 
+			struct entry *location), 
 		 removeEntry(struct entry * element);
 
 	struct entry n0, n1, n2, n3, n4, n5, n6;

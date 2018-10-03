@@ -1,6 +1,9 @@
 /*
- * Program to generate the first 15 Fibonacci numbers
- * exercise 6: rewrite the program without the use of arrays
+ * 6. You don’t need to use an array to generate Fibonacci numbers. You can
+ * simply use three variables: two to store the previous two Fibonacci numbers
+ * and one to store the current one. Rewrite Program 6.3 so that arrays are not
+ * used. Because you’re no longer using an array, you need to display each
+ * Fibinacci number as you generate it.
  * By Faisal Saadatmand
  */
 
@@ -21,6 +24,5 @@ int main(void)
 		FibPrevious2 = FibCurrent;
 		printf("%i\n", FibCurrent);
 	}
-
 	return 0;
 }

@@ -1,4 +1,16 @@
-/* Function to calculate elapsed time. By Faisal Saadatmand */
+/*
+ * 3. Write a function elapsed_time that takes as its arguments two time
+ * structures and returns a time structure that represents the elapsed time (in
+ * hours, minutes, and seconds) between the two times.  So the call
+ *
+ *		elapsed_time (time1, time2)
+ *
+ * where time1 represents 3:45:15 and time2
+ * represents 9:44:03, should return a time structure that represents 5 hours,
+ * 58 minutes, and 48 seconds. Be careful with times that cross midnight.
+ * Function to calculate elapsed time.
+ * By Faisal Saadatmand
+ * */
 
 #include <stdio.h>
 
@@ -21,7 +33,7 @@ struct time elapsed_time(struct time t1, struct time t2)
 		d = d + 86400;
 
 	while (d != 0) {                   /* reformat the difference (hh mm ss) */
-	++timeDiff.seconds;
+		++timeDiff.seconds;
 		if (timeDiff.seconds == 60) {
 			timeDiff.seconds = 0;
 			++timeDiff.minutes;

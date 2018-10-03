@@ -1,5 +1,11 @@
 /* 
- * Function to remove an entry into a linked list AFTER the one pointed to.
+ * 4. Write a function called removeEntry() to remove an entry from a linked
+ * list. The sole argument to the procedure should be a pointer to the list.
+ * Have the function remove the entry after the one pointed to by the argument.
+ * (Why can’t you remove the entry pointed to by the argument?) You need to use
+ * the special structure you set up in exercise 3 to handle the special case of
+ * removing the first element from the list.
+ *
  * by Faisal Saadatamnd
  */
 
@@ -52,6 +58,5 @@ int main(void)
 		printf("%p\n", list_pointer->next);
 		list_pointer = list_pointer->next;
 	}
-
 	return 0;
 }

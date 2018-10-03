@@ -1,5 +1,8 @@
-/* Revising Program 8.2 to determine tomorrow's date, version 3.
- * dateUpdate function uses compound literals for the structure values.
+/*
+ * 6. Replace the dateUpdate() function from Program 8.4 with the modified one
+ * that uses compound literals as presented in the text. Run the program to
+ * verify its proper operation.
+ * By Faisal Saadatmand
  * */
 
 #include <stdio.h>
@@ -67,7 +70,8 @@ int main(void)
 
 	nextDay = dateUpdate(thisDay);
 
-	printf("Tomorrow date is %i/%i/%.2i.\n", nextDay.day, nextDay.month, nextDay.year % 100);
+	printf("Tomorrow date is %i/%i/%.2i.\n", nextDay.day, nextDay.month,
+			nextDay.year % 100);
 
 	return 0;
 }

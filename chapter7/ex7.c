@@ -1,4 +1,10 @@
-/* Function that raises an integer to a positive integer power (n) */
+/*
+ * 7. Write a function that raises an integer to a positive integer power. Call
+ * the function x_to_the_n() taking two integer arguments x and n.  Have the
+ * function return a long int, which represents the results of calculating x^n.
+ * By Faisal Saadatmand
+ */
+
 
 #include <stdio.h>
 
@@ -10,7 +16,6 @@ long int x_to_the_n(int x, int n)
 			result *= x;
 			--n;
 		}
-
 	return result;
 }
 

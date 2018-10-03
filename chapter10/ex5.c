@@ -1,4 +1,11 @@
-/* Doubly linked list exercise. By Faisal Saadatmand */
+/*
+ * 5. A doubly linked list is a list in which each entry contains a pointer to
+ * the preceding entry in the list as well as a pointer to the next entry in
+ * the list. Define the appropriate structure definition for a doubly linked
+ * list entry and then write a small program that implements a small doubly
+ * linked list and prints out the elements of the list.
+ *
+ * By Faisal Saadatmand */
 
 #include <stdio.h>
 
@@ -10,7 +17,7 @@ struct entry {
 
 int main(void) 
 {
-	struct entry n0, n1, n2, n3, n4, n5;
+	struct entry n1, n2, n3, n4, n5;
 	struct entry *list_pointer = &n1, *end_pointer = &n5;
 
 	n1.value = 100;
