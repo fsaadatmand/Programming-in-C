@@ -1,7 +1,7 @@
 /*
- * Program to illustrate a rotate function. Implemented int_size function into
- * the program. Thus, the program no longer makes any
- * assumptions about the size of int.
+ * 4. Using the result obtained in exercise 3, modify the rotate() function
+ * from Program 11.4 so that it no longer makes any assumptions about the size
+ * of an int.
  * By Faisal Saadatmand 
  */
 

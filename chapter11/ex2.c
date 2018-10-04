@@ -1,8 +1,10 @@
 /* 
- * Function to test for logical or arithmetic right shift for negative integers.
- * Note: reverse the return values to create isLogicalRS() function instead. You
- * could also use retun values 0 and 1 if you did not want to use stdbool.h. In
- * which case, replace the if statement's condition with: 
+ * 2. Write a program that determines whether your particular computer performs
+ * an arithmetic or a logical right shift.
+ *
+ * Note: reverse the return values to create isLogicalRS() function instead.
+ * You could also use retun values 0 and 1 if you did not want to use
+ * stdbool.h. In which case, replace the if statement's condition with: 
  * if (isArithmetic == 1)
  *     ... 
  * else

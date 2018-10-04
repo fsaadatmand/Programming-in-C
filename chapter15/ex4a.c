@@ -1,5 +1,8 @@
-/* Program that merges lines from two files alternately  and writes the result
- * to stdout.
+/* 
+ * 4. Write a program that merges lines alternately from two files and writes
+ * the results to stdout. If one file has fewer lines than the other, the
+ * remaining lines from the larger file should simply be copied to stdout.
+ * (alternate version)
  * By Faisal Saadatmand
  */
 

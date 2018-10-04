@@ -1,6 +1,10 @@
 /* 
- * Command-line argument -- dictionary program 
- * Completed by Faisal Saadatmand
+ * 2. Finish the program that takes a word as a command-line argument and looks
+ * up the word to see whether it is in the array of terms and definitions,
+ * providing the definition if it is found, or informs the user that the term
+ * is not in the program’s glossary if it isn’t found.
+ *
+ * by Faisal Saadatmand
  */
 
 #include <stdio.h>

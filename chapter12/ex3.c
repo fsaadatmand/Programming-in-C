@@ -1,4 +1,9 @@
-/* Macro that gives the minimum of two values */
+/*
+ * 3. Define a macro MIN that gives the minimum of two values. Then write a
+ * program to test the macro definition.
+ * By Faisal Saadatmand
+ */
+
 
 #include <stdio.h>
 
@@ -14,7 +19,7 @@ int main(void)
 	minValue = MIN(x, y);
 
 	printf("%i\n", minValue);
-	printf("%i\n", z);
+	printf("%li\n", z);
 
 	return 0;
 }

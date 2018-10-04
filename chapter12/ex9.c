@@ -1,7 +1,14 @@
 /*
- * Macro that computes the absolute value of its argument
+ * 9. Write a macro ABSOLUTE_VALUE that computes the absolute value of its
+ * argument. Make certain that an expression such as
+ *
+ * 		ABSOLUTE_VALUE (x + delta)
+ *
+ * is properly evaluated by the macro.
+ *
  * Test: ABSOLUTE_VALUE(x + delta), where delta is the discriminant of the
  * quadratic equation. See exercise 8 from chapter 7.
+ *
  * By Faisal Saadatmand
  */
 

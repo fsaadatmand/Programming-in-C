@@ -1,5 +1,6 @@
 /* 
- * Macro that gives the maximum value amongst three numbers. 
+ * 4. Define a macro MAX3 that gives the maximum of three values. Write a
+ * program to test the definition.
  * By Faisal Saadatmand
  */
 

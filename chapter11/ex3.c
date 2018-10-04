@@ -1,10 +1,12 @@
 /*
- * Function that returns the number of bits contained in an integer.
- * Notes: negative integers represented in two's complement take up
- * the entire int size set by the compiler. On this system it is 
- * 32 bits or 4 Bytes. Moreover, this method works for decimal and 
- * hexadecimal integers only. For octal or other base integers change 
- * the nibble size appropriately.
+ * 3. Given that the expression ~0 produces an integer that contains all 1s,
+ * write a function called int_size() that returns the number of bits contained
+ * in an int on your particular machine.
+ *
+ * Notes: negative integers represented in two's complement take up the entire
+ * int size set by the compiler. On this system it is 32 bits or 4 Bytes.
+ * Moreover, this method works for decimal and hexadecimal integers only. For
+ * octal or other base integers change the nibble size appropriately.
  *
  * by Faisal Saadatmand
  */
@@ -44,7 +46,7 @@ int main(void)
 	long long signed int i = 1;
 
 	printf("The size of the integer is %i bits\n", int_size(i));
-	printf("sizeof() function result is %i bytes\n", sizeof(i));
+	printf("sizeof() function result is %lu bytes\n", sizeof(i));
 
 	return 0;
 }

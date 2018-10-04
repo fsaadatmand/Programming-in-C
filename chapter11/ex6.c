@@ -1,6 +1,17 @@
 /* 
- * Function to search for given pattern of bits inside an
- * unsigned integer. 
+ * 6. Write a function called bitpat_search() that looks for the occurrence of
+ * a specified pattern of bits inside an unsigned int. The function should
+ * take three arguments and should be called as shown:
+ *
+ * index = bitpat_search (0xe1f4, 0x5, 3);
+ *
+ * causes the bitpat_search() function to search the number 0xe1f4 ( = 1110
+ * 0001 1111 0100 binary ) for the occurrence of the three-bit pattern 0x5 (=
+ * 101 binary). The function returns 11 to indicate that the pattern was found
+ * in the source beginning with bit number 11.  Make certain that the function
+ * makes no assumptions about the size of an int (see exercise 3 in this
+ * chapter).
+ *
  * By Faisal Saadatmand
  */
 
@@ -28,7 +39,6 @@ int int_size(int w)
 			++nBits;
 		}
 	}
-
 	return nBits;
 }
 
@@ -36,9 +46,9 @@ int int_size(int w)
  *
  * The variable match contains the chunk of n bits to be compared against
  * the variable pattern in the loop. Var match first, shifts n bits in source
- * from the leftmost postion to the rightmost position; second, it AND's the 
+ * from the leftmost position to the rightmost position; second, it AND's the 
  * result with var mask that is shifted n bits to the right and inverted--this
- * is to make sure only n bits are perserved at the rightmost position during 
+ * is to make sure only n bits are preserved at the rightmost position during 
  * each iteration of the loop.
  */
 int bitpat_search(unsigned int source, unsigned pattern, int n)

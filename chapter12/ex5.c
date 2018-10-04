@@ -1,7 +1,7 @@
 /*
- * Macro to shift an unsigned int left if
- * the count is positive, and right if negative. 
- * Modified Program 11.3. By Faisal Saadatmand
+ * 5. Write a macro SHIFT to perform the identical purpose as the shift
+ * function of program 11.3.
+ * By Faisal Saadatmand
  */
 
 #include <stdio.h>

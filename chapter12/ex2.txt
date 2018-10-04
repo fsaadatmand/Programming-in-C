@@ -1,5 +1,5 @@
-Locate the system header files <stdio.h>, <limits.h> and <float.h> on your
-system and exlpore /usr/include directory.
+2. Locate the system header files <stdio.h>, <limits.h>, and <float.h> on your
+system (on Unix systems, look inside the /usr/
 
 On UNIX-based systems use the folloing commands to search for the above files:
 

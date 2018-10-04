@@ -1,6 +1,11 @@
 /* 
- * bit_test and bit_set funtions. 
- * Note: bit 0 is the most significant bit in the integer to be tested.
+ * 5. Write a function called bit_test() that takes two arguments: an unsigned
+ * int and a bit number n. Have the function return 1 bit number n if it is on
+ * inside the word, and 0 if it is off. Assume that bit number 0 references the
+ * leftmost bit inside the integer. Also write a corresponding function called
+ * bit_set() that takes two arguments: an unsigned int and a bit number n. Have
+ * the function return result of turning the bit n on inside the integer.
+ *
  * By Faisal Saadatmand 
  */
 
@@ -39,7 +44,7 @@ int bit_test(unsigned int w, int n)
 	msb = int_size(w) - 1;      /* Location of most significant bit in w,
 								   i.e. bit 0 */
 
-	if (n < 0 | n > msb)        /* Check if n is inside the word (w) */
+	if ((n < 0) | (n > msb))        /* Check if n is inside the word (w) */
 		return -1;
 
 	bit = msb - n;              /* Location of the bit to be tested */
