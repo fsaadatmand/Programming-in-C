@@ -4,7 +4,7 @@
  * inserted (of type struct entry as defined in this chapter), and a pointer to
  * an element in the list after which the new entry is to be inserted.
  *
- * by Faisal Saadatamnd
+ * by Faisal Saadatmand
  */
 
 #include <stdio.h>
