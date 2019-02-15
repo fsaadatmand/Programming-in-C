@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) 
 {
@@ -25,12 +26,12 @@ int main(void)
 	/* Open files */
 	if ((file1 = fopen(name1, "r")) == NULL) {
 		printf("Can't open %s for reading.\n", name1);
-		return 1;
+		exit (EXIT_FAILURE);
 	}
 
 	if ((file2 = fopen(name2, "r")) == NULL) {
 		printf("Can't open %s for reading.\n", name2);
-		return 2;
+		exit (EXIT_FAILURE);
 	}
 
 	/* Read line per line using fgets() and print to stdout using printf() */
@@ -45,5 +46,5 @@ int main(void)
 	fclose(file1);
 	fclose(file2);
 
-	return 0;
+	exit (EXIT_SUCCESS);
 }
