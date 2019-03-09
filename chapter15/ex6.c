@@ -9,11 +9,14 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+
+#define MAXLEN 1000
 
 int main(void) 
 {
 	int  i;
-	char fileName[64], line[81], input;
+	char fileName[64], line[MAXLEN], input = '0';
 	FILE *inFile;
 
 	printf("Enter the name of file to read: ");
@@ -21,14 +24,12 @@ int main(void)
 
 	if ((inFile = fopen(fileName, "r")) == NULL) {
 		printf("Can't open %s for reading.\n", fileName);
-		return 1;
+		exit(EXIT_FAILURE);
 	}
 
-	while (input != 'q') {
+	while ((input = getchar()) != 'q') 
 		for (i = 1; i <= 20; ++i)
 			fprintf(stdout, fgets(line, 80, inFile));
-		scanf("%c", &input);
-	}
 
-	return 0;
+	exit(EXIT_SUCCESS);
 }

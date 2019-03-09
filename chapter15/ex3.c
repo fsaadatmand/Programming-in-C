@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int main(void) 
 {
@@ -24,13 +25,13 @@ int main(void)
 	in = fopen(inName, "r");
 	if (in == NULL) {
 		printf("Can't open %s for reading.\n", inName);
-		return 1;
+		exit(EXIT_FAILURE);
 	}
 
 	out = fopen(outName, "w");
 	if (out == NULL) {
 		printf("Can't open %s for writing.\n", outName);
-		return 2;
+		exit(EXIT_FAILURE);
 	}
 
 	/* Copy in to out */
@@ -44,5 +45,5 @@ int main(void)
 	fclose(in);
 	fclose(out);
 
-	return 0;
+	exit (EXIT_SUCCESS);
 }

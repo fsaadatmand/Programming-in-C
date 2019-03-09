@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(void) 
 {
@@ -22,7 +23,7 @@ int main(void)
 	/* Open file */
 	if ((inFile = fopen(fileName, "r")) == NULL) {
 		printf("Can't open %s for reading.\n", fileName);
-		return 1;
+		exit(EXIT_FAILURE);
 	}
 	
 	/* Ask user for the values of m and n */
@@ -41,5 +42,5 @@ int main(void)
 	/* Close open files */
 		fclose(inFile);
 		
-	return 0;
+	exit(EXIT_SUCCESS);
 }
