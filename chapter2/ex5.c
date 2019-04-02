@@ -12,7 +12,7 @@ int main(void)
 
 	/* The comments' syntax was wrong */
 	/* COMPUTE RESULT */
-	sum = 25 + 37 - 19;    /* missing semicolin at the end */
+	sum = 25 + 37 - 19;    /* missing semicolon at the end */
 
 	/* DISPLAY RESULTS  */
 	printf("The answer is %i\n", sum);  /* Missing a comma before

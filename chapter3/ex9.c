@@ -1,4 +1,4 @@
-/* 9. Write a program to find the next largest even multiple for the folowing
+/* 9. Write a program to find the next largest even multiple for the following
  * values of i and j:
  *		i        j
  * 		356      7

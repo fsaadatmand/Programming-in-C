@@ -15,6 +15,8 @@ struct entry {
 	struct entry   *next;
 };
 
+void insertEntry(struct entry *, struct entry *);
+
 void insertEntry(struct entry *insertElement, struct entry *afterElement)
 {
 	insertElement->next = afterElement->next;   /* copy previous element's
@@ -24,7 +26,6 @@ void insertEntry(struct entry *insertElement, struct entry *afterElement)
 
 int main(void) 
 {
-	void insertEntry(struct entry *insertElement, struct entry *afterElement);
 
 	struct entry n0, n1, n2, n3, n4, n5, n6;
 	struct entry *list_pointer = &n0; /* pointer to the beginning of the list */
@@ -49,7 +50,7 @@ int main(void)
 
 	n6.value = 600;
 	
-	insertEntry(&n6, &n5);
+	insertEntry(&n6, &n0);
 
 	list_pointer = list_pointer->next;       /* skip the value of the special
 												structure */

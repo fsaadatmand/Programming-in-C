@@ -4,7 +4,7 @@ Calloc         Xx       alpha_beta_routine
 floating       _1312    z
 ReInitialize   _        A$
 
-The following are invalid vairable names:
+The following are invalid variable names:
 
 Int		reserved word
 char	reserved word

@@ -1,4 +1,4 @@
-/* Illustrating th modulus operator */
+/* Illustrating the modulus operator */
 
 #include <stdio.h>
 

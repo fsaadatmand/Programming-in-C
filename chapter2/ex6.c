@@ -1,6 +1,6 @@
 /*
  * 6. What output might you expect from the following program?
- *    Answert: 95
+ *    Answer: 95
  * By Faisal Saadatmand
  */
 

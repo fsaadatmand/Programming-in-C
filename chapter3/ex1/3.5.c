@@ -6,7 +6,7 @@ int main(void)
 {
 	float  f1 = 123.125, f2;
 	int    i1, i2 = -150;
-	char      c = 'a';
+	char   c = 'a';
 
 	i1 = f1;                 /* floating to integer conversion */
 	printf("%f assigned to an int produces %i\n", f1, i1);
