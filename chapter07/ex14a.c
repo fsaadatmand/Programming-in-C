@@ -2,6 +2,7 @@
  * 14. Rewrite the functions developed in the last four exercises to use global
  * variables instead of arguments. For example, the preceding exercise should
  * now sort a globally defined array.
+ *
  * By Faisal Saadatmand
  */
 
@@ -10,34 +11,29 @@
 
 int gNumber;
 
-int prime(int number)
+bool prime();
+
+bool prime()
 {
 	int i;
-	bool isPrime = true;
 
-	if (number == 2)    /* exclude 2 otherwise it will be wrongly flagged as
-						   an even number */
-		isPrime = true;
-	else if (number < 2 || number % 2 == 0)    /* exclude negative numbers,
-												  0, 1 and even numbers */
-			isPrime = false;
-	else
-		for (i = 3; i < number - 1; ++i)
-			if (number % i == 0)    /* remainder of number divided by i is 0 */ 
-				return 0;
-			else
-				isPrime = true;	
-	return isPrime;
+   /* Exclude all numbers under 2 and all even numbers.
+	* 2 is a special case: though it's even, it's a prime. */
+	if (gNumber != 2 && (gNumber < 2 || gNumber % 2 == 0))
+		return false;
+	/* check if gNumber is divisible by any number other than itself */
+	for (i = 3; i < gNumber - 1; ++i)
+		if (gNumber % i == 0)
+			return false;
+
+	return true;
 }
 
 int main(void)
 {
-	int prime(int number);
-	
-	printf("Enter a number to test primality: ");
+	printf("Enter a number to check if it is a prime number: ");
 	scanf("%i", &gNumber);
-	printf("%i\n", prime(gNumber));
+	printf("%i\n", prime());
 
 	return 0;
 }
-
