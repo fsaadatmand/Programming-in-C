@@ -19,7 +19,7 @@ bool prime(int number)
 	if (number != 2 && (number < 2 || number % 2 == 0))
 		return false;
 	/* check if number is divisible by any number other than itself */
-	for (i = 3; i < number - 1; ++i) 	
+	for (i = 3; i < number - 1; i += 2) 	
 		if (number % i == 0)
 			return false;
 
@@ -30,9 +30,15 @@ int main (void)
 {
 	int number;
 	
-	printf("Enter number to check if it is a prime number: ");
-	scanf("%i", &number);
-	printf("%i\n", prime(number));
+//		if ((char)number == 'q')
+//			break;
+//	printf("Enter number to check if it is a prime number: ");
+	while (scanf("%i", &number) != EOF) {
+	if (prime(number))
+		printf("%i is prime\n", number);
+	else
+		printf("%i is not a prime\n", number);
+	}
 	
 	return 0;
 }

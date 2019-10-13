@@ -22,7 +22,7 @@ bool prime()
 	if (gNumber != 2 && (gNumber < 2 || gNumber % 2 == 0))
 		return false;
 	/* check if gNumber is divisible by any number other than itself */
-	for (i = 3; i < gNumber - 1; ++i)
+	for (i = 3; i < gNumber - 1; i += 2)
 		if (gNumber % i == 0)
 			return false;
 
