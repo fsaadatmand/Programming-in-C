@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int gNumber;
+int gNumber; /* global variable */
 
 bool prime();
 
@@ -31,9 +31,16 @@ bool prime()
 
 int main(void)
 {
-	printf("Enter a number to check if it is a prime number: ");
-	scanf("%i", &gNumber);
-	printf("%i\n", prime());
+	int number, input;
+	
+	do {
+		printf("Enter a number to check for primality: ");
+		input = scanf("%i", &number);
+		if (prime())
+			printf(" %i is a prime number\n", number);
+		else
+			printf(" %i is not a prime number\n", number);
+	} while (input && input != EOF);
 
 	return 0;
 }

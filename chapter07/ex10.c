@@ -28,18 +28,17 @@ bool prime(int number)
 
 int main (void)
 {
-	int number;
+	int number, input;
 	
-//		if ((char)number == 'q')
-//			break;
-//	printf("Enter number to check if it is a prime number: ");
-	while (scanf("%i", &number) != EOF) {
-	if (prime(number))
-		printf("%i is prime\n", number);
-	else
-		printf("%i is not a prime\n", number);
-	}
-	
+	do {
+		printf("Enter a number to check for primality: ");
+		input = scanf("%i", &number);
+		if (prime(number))
+			printf(" %i is a prime number\n", number);
+		else
+			printf(" %i is not a prime number\n", number);
+	} while (input && input != EOF);
+
 	return 0;
 }
 
