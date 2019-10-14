@@ -2,6 +2,7 @@
  * 14. Rewrite the functions developed in the last four exercises to use global
  * variables instead of arguments. For example, the preceding exercise should
  * now sort a globally defined array.
+ *
  * By Faisal Saadatmand
  */
 
@@ -42,19 +43,19 @@ int main(void)
 
 	printf("The array before the sort:\n");
 	for (i = 0; i < 16; ++i)
-		printf("%i ", array[i]);
+		printf(" %i", array[i]);
 
 	sort(array, 16, 'a');
 
 	printf("\n\nThe array after the sort in ascending order:\n");
 	for (i = 0; i < 16; ++i)
-		printf("%i ", array[i]);
+		printf(" %i", array[i]);
 
 	sort(array, 16, 'd');
 
 	printf("\n\nThe array after the sort in descending order:\n");
 	for (i = 0; i < 16; ++i)
-		printf("%i ", array[i]);
+		printf(" %i", array[i]);
 
 	printf("\n");
 
