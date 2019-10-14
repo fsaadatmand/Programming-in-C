@@ -38,6 +38,7 @@ int main (void)
 		else
 			printf(" %i is not a prime number\n", number);
 	} while (input && input != EOF);
+	printf("\n");
 
 	return 0;
 }
