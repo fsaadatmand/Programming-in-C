@@ -1,82 +1,80 @@
 /* 
  * 10. Write a function prime() that returns 1 if its argument is a prime
- * number and returns 0 otherwise. This version uses Sieve of Eratosthenes
- * algorithm.
+ * number and returns 0 otherwise.
+ *
+ * NOTE: this version uses Sieve of Eratosthenes algorithm.
+ *
+ * The use of global variables is not ideal, for it should be avoided whenever
+ * possible. However, in this case, it allows for some optimization, i.e. we
+ * could use the same sieve across multiple calls to the function prime and
+ * generating a new one only when necessary.
+ *
  * By Faisal Saadatmand
  */
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
-int prime(const int number) 
+/* global variables*/
+unsigned *p; /* prime sieve pointer (array) */
+size_t pSize = 1000000;
+
+bool prime(const size_t n);
+unsigned *generatePrimeSieve(const size_t n);
+
+unsigned *generatePrimeSieve(const size_t n)
 {
-	int n = number + 1;
-	int  P[n+1], N[n+1], Prime[n+1], i, j, x, counter; 
-	bool isPrime;
+	unsigned *p;
+	size_t i, j;
 
-	counter = 0;
-	for (i = 2; i <= n; ++i) {
-		P[i] = 0;
-		N[i] = i;
-		Prime[i] = 0;
+	if (!(p = calloc(sizeof(long unsigned), n + 1))) {
+		fprintf(stderr, "unable to allocate memory\n");
+		exit(EXIT_FAILURE);
 	}
 
-	i = 2;
-	while (i < n) {
-		if (P[i] == 0) 
-			Prime[i] = N[i];
-		for (j = 2; j <= n; ++j)	
-			if (i * j <= n)
-				P[i*j] = 1;
-		++i;
-	}
+	for (i = 2; i < n; ++i)
+		if (!p[i])
+			for (j = i * i; j <= n ; j += i)
+				p[j] = 1;
 
-	for (i = 2; i <= n; ++i) {
-		if (Prime[i] == 0) 
-				++counter;
-		else if (Prime[i] != 0 && counter != 0) {
-			for (x = i; x <= n; ++x)
-				Prime[x-counter] = Prime[x];
-			i -= counter;
-			counter = 0;
-		}
-	}
+	return p;
+}
 
-/* Step 8: Create a variable length array Prime2 to eliminate the zeroes at the
- * end of Prime array. */
-	x = 2;
-	while (Prime[x] != 0)
-		++x;
+bool prime(const size_t n) 
+{
+	/* Optimization: start with a sieve of size pSize and only generate a new
+	 * sieve with a larger size if n is larger than pSize */
+	if (n > pSize) {
+		free(p);
+		p = NULL;
+		pSize = n;
+	}
+	if (!p)
+		p = generatePrimeSieve(pSize);
+
+	if (n < 2 || p[n])
+		return false;
 	
-	unsigned int Prime2[x];
-	for (i = 2; i <= x; ++i)
-		Prime2[i]  = Prime[i];
-
-/* Print the value of elements in Prime2 */
-	isPrime = true;
-
-	for (i = 2; i < x ; ++i)
-		if (Prime2[i] == number)
-			isPrime = true;
-		else
-			isPrime = false;
-
-	if (isPrime == true)
-		return 1;
-
-	return 0;
+	return true;
 }
 
 int main(void)
 {
-	int number;
-	
-	int prime(const int number);
+	int number, input;
 
-	printf("Enter number to test primality: ");
-	scanf("%i", &number);
+	do {
+		printf("Enter a number to check for primality: ");
+		input = scanf("%i", &number);
+		if (prime(number))
+			printf(" %i is a prime number\n", number);
+		else
+			printf(" %i is not a prime number\n", number);
+	} while (input && input != EOF);
+	printf("\n");
 
-	printf("%i\n", prime (number));
+	free(p);
+	p = NULL;
 
 	return 0;
 }
