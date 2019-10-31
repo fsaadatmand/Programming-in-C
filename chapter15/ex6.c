@@ -12,24 +12,28 @@
 #include <stdlib.h>
 
 #define MAXLEN 1000
+#define MAXLINES 20
+#define NAME_MAXLEN 64
 
 int main(void) 
 {
 	int  i;
-	char fileName[64], line[MAXLEN], input = '0';
+	char fileName[NAME_MAXLEN], line[MAXLEN];
 	FILE *inFile;
 
 	printf("Enter the name of file to read: ");
 	scanf("%63s", fileName);
 
-	if ((inFile = fopen(fileName, "r")) == NULL) {
-		printf("Can't open %s for reading.\n", fileName);
+	if (!(inFile = fopen(fileName, "r"))) {
+		fprintf(stderr, "Can't open %s for reading.\n", fileName);
 		exit(EXIT_FAILURE);
 	}
 
-	while ((input = getchar()) != 'q') 
-		for (i = 1; i <= 20; ++i)
-			fprintf(stdout, fgets(line, 80, inFile));
+	while (getchar() != 'q') 
+		for (i = 0; i < MAXLINES; ++i)
+			fprintf(stdout, " %s\n", fgets(line, MAXLEN, inFile));
+
+	fclose(inFile);
 
 	exit(EXIT_SUCCESS);
 }
