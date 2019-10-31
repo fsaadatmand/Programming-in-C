@@ -1,6 +1,7 @@
 /*
  * 5. Write a macro SHIFT to perform the identical purpose as the shift
  * function of program 11.3.
+ * 
  * By Faisal Saadatmand
  */
 
