@@ -12,12 +12,8 @@
 int main(void) 
 {
 	int x = 5, y = 7, z = 20;
-	int max3value;
-
-	max3value = MAX3(x + 16, y * y, z);
 
 	printf("Maximum value for %i, %i, %i is %i\n", x, y, z, MAX3(x, y, z));
-	printf("Result of MAX3 macro is %i\n", max3value);
 
 	return 0;
 }
