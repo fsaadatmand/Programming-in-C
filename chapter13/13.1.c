@@ -1,4 +1,7 @@
-/* Using enumerated data types. Program to print the number of fays in a month*/
+/*
+ * Using enumerated data types. Program to print the number of fays in a
+ * month.
+ */
 
 #include <stdio.h>
 
