@@ -13,13 +13,8 @@ int main(void)
 {
 
 	int x = 5, y = 7;
-	int minValue;
-	long int z = 2E2;
 
-	minValue = MIN(x, y);
-
-	printf("%i\n", minValue);
-	printf("%li\n", z);
+	printf("%i\n", MIN(x, y));
 
 	return 0;
 }
