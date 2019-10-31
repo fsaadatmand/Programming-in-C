@@ -9,11 +9,17 @@
 
 #include <stdio.h>
 
-/* A type FunctionPtr() that represents a pointer to to a function */
+int foo(void)
+{
+	return 42;
+}
 
 typedef int (*FunctionPtr)(void);
 
 int main(void) 
 {
+	FunctionPtr fp = foo;;
+	printf("%i\n", fp());
+
 	return 0;
 }
