@@ -4,7 +4,7 @@
  * character string containing the name of the month. In this way, you can
  * display the value of an enum month variable with a statement such as:
  *
- * 		printf ("%s\n", monthName (aMonth));
+ * 		printf ("%s\n", monthName(aMonth));
  *
  * By Faisal Saadatmand
  */
