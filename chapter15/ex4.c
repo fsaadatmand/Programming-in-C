@@ -27,12 +27,12 @@ int main(void)
 	scanf("%63s", name2);
 
 	if (!(file1 = fopen(name1, "r"))) {
-		printf("Can't open %s for reading.\n", name1);
+		fprintf(stderr, "Can't open %s for reading.\n", name1);
 		exit (EXIT_FAILURE);
 	}
 
 	if (!(file2 = fopen(name2, "r"))) {
-		printf("Can't open %s for reading.\n", name2);
+		fprintf(stderr, "Can't open %s for reading.\n", name2);
 		exit (EXIT_FAILURE);
 	}
 
