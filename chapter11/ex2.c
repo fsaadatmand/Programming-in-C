@@ -10,6 +10,10 @@
 
 #define MAXLEN 16
 
+/* functions */
+bool isArithmeticRS(void);
+bool isLogicalRS(void);
+
 /* check for 1 in the most significant bit */
 bool isArithmeticRS(void) 
 {
