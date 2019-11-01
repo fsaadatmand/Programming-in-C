@@ -23,7 +23,6 @@ size_t int_size()
 
 int main(void) 
 {
-
 	printf("int_size() -> %lu bits\n", int_size());
 	/* for comparison */
 	printf("sizeof() -> %lu bits\n", sizeof(int) * 8);
