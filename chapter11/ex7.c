@@ -18,52 +18,54 @@
 
 #include <stdio.h>
 
-/* Function that returns the number of bits contained in an integer. */
-int int_size(int w)
+/* functions */
+size_t int_size();
+unsigned int bitpat_get(unsigned int, int, int);
+
+size_t int_size()
 {
-	int mask, nBits = 0, nibble = 4;
-	
-	mask = ~0;                     /* Integer full of 1's */
-	if (w >= 0) {
-		w = ~w;                    /* One's complement to invert the bits */
-		while (w != mask) {
-			w >>= 1;               /* Right shift until w equals mask */
-			++nBits;
-		}
-		if (nBits % nibble !=0)    /* Ensure each nibble is 4 bits */
-			nBits += nibble - nBits % nibble;
-	} else if (w < 0) {            /* Negative integers */
-		w |= mask;                 /* Set all bits to 1 */
-		while (w != 0) {           /* Left shift until w equal zero */
-			w <<= 1;          
-			++nBits;
-		}
+	int x = ~0;
+	size_t i = 0;
+
+	while (x != 0x0) {
+		x <<= 1;
+		++i;
 	}
-	return nBits;
+
+	return i;
 }
 
 /* Function to extract a specified set of bits */
 unsigned int bitpat_get(unsigned int w, int position, int nBits)
 {
-	unsigned int bits;
-	int mask = ~0;
+	unsigned bit_position, bits;
 
-	bits = w >> ((int_size(w) - position) - nBits) & ~(mask << nBits);
+	/* out of bounds check */
+	if (position < 0 || position > (int) int_size() - nBits)
+		return -1;
 
-	return bits;
+	bits = ~(~0 << nBits);
+	bit_position  = int_size() - position - nBits;
+
+	return  w >> bit_position & bits;
 }
 
 int main(void) 
 {
-	int int_size(int w);
-	unsigned int bitpat_get(unsigned int w, int position, int nBits);
+	const unsigned int x = 0xe1f4;
 
-	unsigned int x;
-	x = 0xe1f4;
-	
+	// bit 0 in int on this machine
 	printf("%x\n", bitpat_get(x, 0, 3));
-	printf("%x\n", bitpat_get(x, 3, 5));
-	printf("%x\n", bitpat_get(x, 8, 4));
+
+	// reverse 8-bit word 
+	printf("%x", bitpat_get(x, 28, 4));
+	printf("%x", bitpat_get(x, 24, 4));
+	printf("%x", bitpat_get(x, 20, 4));
+	printf("%x\n", bitpat_get(x, 16, 4));
+
+	// outside of word boundaries
+	printf("%x\n", bitpat_get(x, 32, 4));
+	printf("%x\n", bitpat_get(x, -1, 4));
 
 	return 0;
 }

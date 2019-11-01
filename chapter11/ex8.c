@@ -15,69 +15,61 @@
  * 		bitpat_set (&x, 0x55u, 0, 8);
  *
  * sets the eight leftmost bits of x to hexadecimal 55. Make no assumptions
- * about the particular size of an int (refer to exercise 3 in this chapter(.
- *
- * Note: field is the size of the field of bits to be set in w.
+ * about the particular size of an int (refer to exercise 3 in this chapter).
  *
  * By Faisal Saadatmand
  */
 
+ // Note: field is the number of bits to be set in w.
+
 #include <stdio.h>
 
-/* Function that returns the number of bits contained in an integer. */
-int int_size(int w)
+/* functions */
+size_t int_size();
+void bitpat_set(unsigned int *, unsigned int, int, int);
+
+size_t int_size()
 {
-	int mask, nBits = 0, nibble = 4;
-	
-	mask = ~0;                     /* Integer full of 1's */
-	if (w >= 0) {
-		w = ~w;                    /* One's complement to invert the bits */
-		while (w != mask) {
-			w >>= 1;               /* Right shift until w equals mask */
-			++nBits;
-		}
-		if (nBits % nibble !=0)    /* Ensure each nibble is 4 bits */
-			nBits += nibble - nBits % nibble;
-	} else if (w < 0) {            /* Negative integers */
-		w |= mask;                 /* Set all bits to 1 */
-		while (w != 0) {           /* Left shift until w equal zero */
-			w <<= 1;          
-			++nBits;
-		}
+	int x = ~0;
+	size_t i = 0;
+
+	while (x != 0x0) {
+		x <<= 1;
+		++i;
 	}
 
-	return nBits;
+	return i;
 }
 
 /* Function to set a specified set of bits to a particular value */
-void bitpat_set(unsigned int *w, unsigned int value, int starting_bit,
-		int field)
+void bitpat_set(unsigned int *w, unsigned int value,
+				int starting_bit, int field)
 {
-	unsigned int x;
-	int mask, size, position;
+	unsigned int mask;
+	int pos;
 
-	x = *w;                                          /* Use local variable to 
-														pass it to int_size() */
-	mask = ~0;
-	size = int_size(x);
-	position = size - starting_bit - field;          /* Position of the set of
-														bits */  
+	/* Position of the set of bits */  
+	pos = int_size() - starting_bit - field;
 
-	x &= ~(~(mask << field) << position);            /* Zero bits' field in x */
-	value = (value & ~(mask << field)) << position;  /* align value and field */
-	x |= value;                                      /* insert value into x */
-	*w = x;                                          /* Set value of &w */
+	/* create a field mask and aligned it with position */
+	mask = ~(~(~0x0 << field) << pos);
+
+	/* Zero bits' field in w */
+	*w &= mask;
+
+	/* insert value of field into w */
+	*w |= (value << pos);
 }
 
 int main(void) 
 {
-	void bitpat_set(unsigned int *w, unsigned int value, int starting_bit,
-			int field);
-	int int_size(int w);
-
 	unsigned int x = 0xffff;
 
-	bitpat_set(&x, 0x55u, 0, 8);
+	bitpat_set(&x, 0x55u, 16, 8);
+	printf("%x\n", x);
+	bitpat_set(&x, 0x0u, 28, 4);
+	printf("%x\n", x);
+	bitpat_set(&x, 0x1u, 31, 1);
 	printf("%x\n", x);
 
 	return 0;
