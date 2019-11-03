@@ -16,40 +16,24 @@
 
 #include <stdio.h>
 
-void removeString(char source[], int index, int nchar)
+void removeString(char [], int, int);
+
+void removeString(char source[], int pos, int count)
 {	
 	int i;
 
-	i = index + nchar;
-	while (source[i] != '\0') {      /* remove word */
-		source[index] = source[i];
-		++index;
-		++i;
-	}
-
-	while (source[index] != '\0') {  /* remove spaces */
-		source[index] = '\0';
-		++i;
-	}
+	for (i = pos + count; source[i] != '\0'; ++i, ++pos)
+		/* copy characters to from index i to pos */
+		source[pos] = source[i];
+	source[pos] = '\0';
 }
 
 int main(void) 
-{
-	void removeString(char source[], int index, int nchar);
+{	
+	char str[] = "the wrong son";
 
-	int i = 0;
-	char text[] = "the wrong son";
-
-	removeString(text, 4, 6);
-	printf("%s\n", text); 
-
-	while (text[i] != '\0') {     /* test for the null character at the end of
-									 string */
-		printf("%c", text[i]);
-		++i;
-	}
-
-	printf("\n");
+	removeString(str, 4, 6);
+	printf("%s\n", str); 
 
 	return 0;
 }
