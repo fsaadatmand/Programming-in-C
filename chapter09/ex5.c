@@ -4,9 +4,8 @@
  * the character string that is to be searched and the second argument is the
  * string you are interested in finding. If the function finds the specified
  * string, have it return the location in the source string where the string
- * was found. If the function does not find the string where the string was
- * found. If the function does not find the string, have it return −1. So, for
- * example, the call
+ * was found. If the function does not find the string, have it return −1. So,
+ * for example, the call
  *
  *		index = findString ("a chatterbox", "hat");
  *
@@ -18,52 +17,28 @@
  */
 
 #include <stdio.h>
-#include <stdbool.h>
 
-int findString(const char source[], const char search[])
+int findString(const char [], const char []);
+
+int findString(const char s[], const char t[])
 {
-	int i = 0, j = 0, position = 0;
-	bool matchFound = false;
+	int i, j, k;
 
-	while (source[i] != '\0') {
-		if (source[i] == search[j]) {
-			matchFound = true;
-			position = i;
-			while (search[j] != '\0' && matchFound)
-				if (search[j] != source[i])
-					matchFound = false;
-				else {
-					++j;
-					++i;
-				}	
-			if (matchFound == true)
-				return position;          /* found a match */
-			else {                        /* reset indexes for the outter loop */
-				i = position;
-				++i;
-				j = 0;
-			} 
-		} else                           /* keep searching in source */
-			++i;
+	for (i = 0; s[i] != '\0'; ++i) {
+		for (j = i, k = 0; s[j] == t[k]; ++j, ++k)
+			;
+		if (t[k] == '\0')
+			return i;
 	}
-
-	if (source[i] == '\0' && matchFound == false)
-		 position = -1;
-
-	return position;
+	return -1;
 }		
 
 int main(void) 
 {
-	int findString(const char source[], const char search[]);
-
-	const char str1[] = "a chatterbox";
-	const char str2[] = "hat";
-
-	printf("%i\n", findString(str1, str2));
 	printf("%i\n", findString("a chatterbox", "hat"));
 	printf("%i\n", findString("a chatterbox", "car"));
 	printf("%i\n", findString("a chatterbox", "ter"));
+	printf("%i\n", findString("a chatterbox", "a chatterboxer"));
 
 	return 0;
 }
