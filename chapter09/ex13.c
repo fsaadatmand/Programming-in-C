@@ -14,20 +14,18 @@
 
 void uppercase(char string[])
 {
-	int i = 0;
+	int i;
 
-	while (string[i] != '\0') {
+	for (i = 0; string[i] != '\0'; ++i)
 		if (string[i] >= 'a' && string[i] <= 'z')
 			string[i] = string[i] - 'a' + 'A';
-		++i;
-	}
 }
 
 int main(void) 
 {
 	void uppercase(char string[]);	
 
-	char str[81] = "abcdfghijklmnopqrstuvwxyz";
+	char str[] = "abcdfghijklmnopqrstuvwxyz";
 	uppercase(str);
 	printf("%s\n", str);
 
