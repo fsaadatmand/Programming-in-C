@@ -30,39 +30,25 @@
 
 #include <stdio.h>
 
+#define LEN 20
+
 void substring(const char source[], int start, int count, char result[])
 {
-	int i, j = 0, nChar =0;
+	int i, j;
 
-	while (source[nChar] != '\0')     /* count number of characters in source */
-		++nChar;
-
-	if (start + count > nChar) {      /* extract till the end of source */
-		i = start;
-		while (source[i] != '\0') {
-			result[j] = source[i];
-			++i;
-			++j;
-		}
-	} else                        /* extract the requested number of characters */
-		for (i = start; i < start + count; ++i) {
-			result[j] = source[i];
-			++j;
-		}	
-
+	for (i = start, j = 0; j < count && source[i] != '\0'; ++i, ++j)
+		result[j] = source[i];
 	result[j] = '\0';
 }
 
 int main(void) 
 {
-	void substring(const char source[], int start, int count, char result[]);
+	char substr[LEN];
 
-	char result[20];
-	const char array[] = "character";
-
-	substring(array, 4, 3, result);
-	
-	printf("%s\n", result);
+	substring("character", 4, 3, substr);
+	printf("%s\n", substr);
+ 	substring ("two words", 4, 20, substr);
+	printf("%s\n", substr);
 
 	return 0;
 }
