@@ -20,15 +20,15 @@
 
 int findString(const char [], const char []);
 
-int findString(const char s[], const char t[])
+int findString(const char source[], const char sought[])
 {
 	int i, j, k;
 
-	for (i = 0; s[i] != '\0'; ++i) {
-		for (j = i, k = 0; s[j] == t[k]; ++j, ++k)
+	for (i = 0; source[i] != '\0'; ++i) {
+		for (j = i, k = 0; source[j] == sought[k]; ++j, ++k)
 			;
-		if (t[k] == '\0')
-			return i;
+		if (sought[k] == '\0') // match is found if sought reached end
+			return i; // return match position in source
 	}
 	return -1;
 }		
