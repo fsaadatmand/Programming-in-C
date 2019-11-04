@@ -52,6 +52,7 @@ void dictionarySort(struct entry dictionary[], int entries)
 
 int main(void) 
 {
+	int i, entries = 10;
 	struct entry dictionary[100] = 
 		{ { "aardvark", "a burrowing African mammal"             },
 		  { "affix",    "to append; attach"                      },
@@ -63,8 +64,6 @@ int main(void)
 		  { "addle",    "to become confused"                     },
 		  { "agar",     "a jelly made from seaweed"              },
 		  { "aigrette", "an ornamental cluster of feathers"      } };
-
-	int  i, entries = 10;
 
 	dictionarySort(dictionary, entries);
 
