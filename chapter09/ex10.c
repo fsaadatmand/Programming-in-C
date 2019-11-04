@@ -12,6 +12,11 @@ struct entry {
 	char definition[50];
 };
 
+/* functions */
+int compareStrings(char [], char []);
+void switchStrings(char [], char []);
+void dictionarySort(struct entry [], int);
+
 /* Function to compare two character strings */
 int compareStrings(char s1[], char s2[])
 {
@@ -21,63 +26,32 @@ int compareStrings(char s1[], char s2[])
 		++i;
 
 	if (s1[i] < s2[i])
-		answer = -1;                  /* s1 < s2 */
+		answer = -1; /* s1 < s2 */
 	else if (s1[i] == s2[i])
-		answer = 0;                   /* s1 == s2 */
+		answer = 0; /* s1 == s2 */
 	else
-		answer = 1;                   /* s1 > s2 */
+		answer = 1; /* s1 > s2 */
 
 	return answer;
-}
-
-/* function to switch the values of two strings with each other */
-void switchStrings(char s1[], char s2[])
-{
-	int i;
-	char temp[51];
-
-	i = 0;
-	while (s2[i] != '\0') {
-		temp[i] = s2[i];
-		++i;
-	}
-	temp[i] = '\0';
-
-	i = 0;
-	while (s1[i] != '\0') {
-		s2[i] = s1[i];
-		++i;
-	}
-	s2[i] = '\0';
-
-	i = 0;
-	while (temp[i] != '\0') {
-		s1[i] = temp[i];
-		++i;
-	}
-	s1[i] = '\0';
 }
 
 /* function that sorts a dictionary */
 void dictionarySort(struct entry dictionary[], int entries)
 {
-	int compareStrings(char s1[], char s2[]);
-	void switchStrings(char s1[], char s2[]);
-
 	int i, j;
+	struct entry temp;
 
-	for (i = 0; i <= entries - 1; ++i) 
-		for (j = i + 1; j < entries; ++j) 
+	for (i = 0; i < entries; ++i)
+		for (j = i + 1; j < entries; ++j)
 			if (compareStrings(dictionary[i].word, dictionary[j].word) == 1) {
-				switchStrings(dictionary[i].word, dictionary[j].word); 
-				switchStrings(dictionary[i].definition, dictionary[j].definition); 
-			} 
+				temp = dictionary[i];
+				dictionary[i] = dictionary[j];
+				dictionary[j] = temp;
+			}
 }
 
 int main(void) 
 {
-	void dictionarySort(struct entry dictionary[], int entries);
-
 	struct entry dictionary[100] = 
 		{ { "aardvark", "a burrowing African mammal"             },
 		  { "affix",    "to append; attach"                      },
@@ -95,7 +69,7 @@ int main(void)
 	dictionarySort(dictionary, entries);
 
 	for (i = 0; i <= entries; ++i)
-		printf("%s\n", dictionary[i].word);
+		printf("%s    \t%s\n", dictionary[i].word, dictionary[i].definition);
 	
 	return 0;
 }
