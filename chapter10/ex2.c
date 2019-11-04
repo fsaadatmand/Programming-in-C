@@ -15,6 +15,19 @@ struct entry {
 };
 
 void insertEntry(struct entry *, struct entry *);
+void print_list(struct entry *);
+
+void print_list(struct entry *p)
+{
+	int i;
+
+	for (i = 1; p != NULL; ++i) {
+		printf("n%i (%p)\n", i, (void *) p);
+		printf(" value: %i\n", p->value);
+		printf(" next: %p\n", (void *) p->next);
+		p = p->next;
+	}
+}
 
 void insertEntry(struct entry *newEntry, struct entry *listEntry)
 {
@@ -26,7 +39,6 @@ void insertEntry(struct entry *newEntry, struct entry *listEntry)
 
 int main(void) 
 {
-	int i;
 	struct entry n1, n2, n3, n4, n5, n6;
 	struct entry *list_pointer = &n1; /* pointer to the beginning of the list */
 
@@ -43,21 +55,14 @@ int main(void)
 	n4.next = &n5;
 	
 	n5.value = 500;
-	n5.next = NULL; /* Mark list end with null pointer */
+	n5.next = NULL;
 
 	/* new entrey */
 	n6.value = 600;
 	n6.next = NULL;
 	
 	insertEntry(&n6, &n1);
-
-	i = 1;
-	while (list_pointer != NULL) {
-		printf("n%i (%p)\n", i++, list_pointer);
-		printf(" value: %i\n", list_pointer->value);
-		printf(" next: %p\n", list_pointer->next);
-		list_pointer = list_pointer->next;
-	}
+	print_list(list_pointer);
 
 	return 0;
 }

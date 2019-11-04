@@ -9,16 +9,31 @@
 
 #include <stdio.h>
 
-struct entry {
+struct entryD {
 	int value;
-	struct entry *previous;
-	struct entry *next;
+	struct entryD *previous;
+	struct entryD *next;
 };
+
+void print_list(struct entryD *);
+
+void print_dlist(struct entryD *p)
+{
+	int i;
+
+	for (i = 1; p; ++i) {
+		printf("n%i (%p)\n", i, (void *) p);
+		printf(" value: %i\n", p->value);
+		printf(" next: %p\n", (void *) p->next);
+		printf(" previous: %p\n", (void *) p->previous);
+		p = p->next;
+	}
+}
 
 int main(void) 
 {
-	struct entry n1, n2, n3, n4, n5;
-	struct entry *list_pointer = &n1;
+	struct entryD n1, n2, n3, n4, n5;
+	struct entryD *list_pointer = &n1;
 
 	n1.value = 100;
 	n1.previous = NULL;
@@ -40,14 +55,7 @@ int main(void)
 	n5.previous = &n4;
 	n5.next = NULL;
 
-	int i = 1;
-	while (list_pointer) {
-		printf("n%i (%p)\n", i++, list_pointer);
-		printf(" value: %i\n", list_pointer->value);
-		printf(" next: %p\n", list_pointer->next);
-		printf(" previous: %p\n", list_pointer->previous);
-		list_pointer = list_pointer->next;
-	}
+	print_dlist(list_pointer);
 
 	return 0;
 }

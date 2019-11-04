@@ -11,18 +11,19 @@
 
 #include <stdio.h>
 
-struct entry {
+struct entryD {
 	int value;
-	struct entry *previous;
-	struct entry *next;
+	struct entryD *previous;
+	struct entryD *next;
 };
 
 /* functions */
-struct entry* insertEntry (struct entry *, struct entry *); 
-struct entry* removeEntry(struct entry *);
+struct entryD* insertEntry (struct entryD *, struct entryD *); 
+struct entryD* removeEntry(struct entryD *);
+void print_list(struct entryD *);
 
 /* insertEntry: insert element AFTER pos in the list */
-struct entry* insertEntry (struct entry *element, struct entry *pos)
+struct entryD* insertEntry (struct entryD *element, struct entryD *pos)
 {	
 	if (pos->next)
 		pos->next->previous = element;
@@ -35,9 +36,9 @@ struct entry* insertEntry (struct entry *element, struct entry *pos)
 	return element;
 }
 
-/* removeEntry: remove the element in a list. Return a pointer to the entry
+/* removeEntry: remove the element in a list. Return a pointer to the entryD
  * just after the one removed */
-struct entry* removeEntry(struct entry *element)
+struct entryD* removeEntry(struct entryD *element)
 {
 	if (element->previous)
 		(element->previous)->next = element->next;
@@ -48,10 +49,23 @@ struct entry* removeEntry(struct entry *element)
 	return element->next;
 }
 
+void print_dlist(struct entryD *p)
+{
+	int i;
+
+	for (i = 1; p; ++i) {
+		printf("n%i (%p)\n", i, (void *) p);
+		printf(" value: %i\n", p->value);
+		printf(" next: %p\n", (void *) p->next);
+		printf(" previous: %p\n", (void *) p->previous);
+		p = p->next;
+	}
+}
+
 int main(void) 
 {
-	struct entry n1, n2, n3, n4, n5, n6;
-	struct entry *list_pointer = &n1;
+	struct entryD n1, n2, n3, n4, n5, n6;
+	struct entryD *list_pointer = &n1;
 
 	n1.value = 100;
 	n1.previous = NULL;
@@ -81,14 +95,7 @@ int main(void)
 //	removeEntry(&n3);
 //	removeEntry(&n5);
 
-	int i = 1;
-	while (list_pointer) {
-		printf("n%i (%p)\n", i++, list_pointer);
-		printf(" value: %i\n", list_pointer->value);
-		printf(" next: %p\n", list_pointer->next);
-		printf(" previous: %p\n", list_pointer->previous);
-		list_pointer = list_pointer->next;
-	}
+	print_dlist(list_pointer);
 
 	return 0;
 }

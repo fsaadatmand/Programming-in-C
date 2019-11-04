@@ -15,7 +15,9 @@ struct entry {
 	struct entry *next;
 };
 
+/* functions */
 void insertEntry(struct entry *, struct entry *);
+void print_list(struct entry *);
 
 void insertEntry(struct entry *newElement, struct entry *ListElement)
 {
@@ -23,6 +25,18 @@ void insertEntry(struct entry *newElement, struct entry *ListElement)
 	newElement->next = ListElement->next;
 	/* Link the new entry to list */
 	ListElement->next = newElement;
+}
+
+void print_list(struct entry *p)
+{
+	int i;
+
+	for (i = 1; p; ++i) {
+		printf("n%i (%p)\n", i, (void *) p);
+		printf(" value: %i\n", p->value);
+		printf(" next: %p\n", (void *) p->next);
+		p = p->next;
+	}
 }
 
 int main(void) 
@@ -56,11 +70,6 @@ int main(void)
 	/* update list_pointer to point the new first element, i.e. n6 */
 	list_pointer = n0.next;
 
-	int i = 1;
-	while (list_pointer != NULL) {
-		printf("n%i (%p)\n", i++, list_pointer);
-		printf(" value: %i\n", list_pointer->value);
-		printf(" next: %p\n", list_pointer->next);
-		list_pointer = list_pointer->next;
-	}
+	print_list(list_pointer);
+
 }
