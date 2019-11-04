@@ -9,87 +9,64 @@
  * program that displays the day of the week on which a particular date falls.
  * Make certain that the program displays the day of the week in English (such
  * as “Monday”).
+ *
  * By Faisal Saadatmand
  */
 
 #include <stdio.h>
 
-struct date {
+struct Date {
 	int  day;
 	int  month;
 	int  year;
 };
 
-struct day {
-	int nChar;
+struct WeekDays {
 	char day[9];
 };
 
-int year(struct date x)
-{
-	int value;
+/* functions */
+int year(const int, const int);
+int month(const int);
+int days(const struct Date);
 
-	if (x.month <= 2)
-		value = x.year - 1;
-	else
-		value = x.year;
-	return value;
+/* month: return the value of the year according to the Gregorian calendar */
+int year(const int year, const int month)
+{
+	return (month <= 2) ? year - 1 : year;
 }
 
-int month(struct date x)
+/* month: returns the value of month according to the Gregorian calendar */
+int month(const int month)
 {
-	int value;
-	 
-	if (x.month <= 2)
-		value = x.month + 13;
-	else
-		value = x.month + 1;
-	return value;
+	return (month <= 2) ? month + 13 : month + 1;
 }
 
-/* Function to calculate the value of N */
-int valueOfN(struct date x)
+/* days: calculate the elapsed number of days since Unix epoch */
+int days(const struct Date x)
 {
-	int N;
-
-	N = (1461 * year(x)) / 4 + (153 * month(x)) / 5 + x.day;
-
-	if (x.year > 1800 && x.year < 1900) {          /* Mar 1, 1800 to Feb 28, 1900 */
-		if (x.month == 3 || x.month == 2)
-			++N;
-	} else if (x.year > 1700 && x.year < 1800) {   /* Mar 1, 1700 to Feb 28, 1800 */
-		if (x.month == 3 || x.month == 2)
-			N += 2;
-	}
-	return N;
+	return (1461 * year(x.year, x.month)) / 4
+		   + (153 * month(x.month)) / 5 + x.day;
 }
 
 int main(void)
 {
-	int              x, i;
-	struct date      d;
-
-	int year(struct date x), month(struct date x), valueOfN(struct date x);
-
-	const struct day dayOfWeek[7] = { { 6, { 'S', 'u', 'n', 'd', 'a', 'y' } }, 
-		                              { 5, { 'M', 'o', 'd', 'a', 'y' } },
-		                              { 7, { 'T', 'u', 'e', 's', 'd', 'a', 'y' } },
-								      { 9, { 'W', 'e', 'd', 'n', 'e', 's', 'd', 'a', 'y' } },
-								      { 8, { 'T', 'h', 'u', 'r', 's', 'd', 'a', 'y' } },
-								      { 6, { 'F', 'r', 'i', 'd', 'a', 'y' } },
-								      { 8, { 'S', 'a', 't', 'u', 'r', 'd', 'a', 'y' } } };
+	int i;
+	struct Date d;
+	const struct WeekDays days_of_week[] = { {"Sunday"},
+											 {"Monday"},
+											 {"Tuesday"},
+											 {"Wednesday"},
+											 {"Thursday"},
+											 {"Friday"}, 
+											 {"Saturday"} };
 
 	printf("Enter a date (dd mm yyyy): ");
-	scanf("%i%i%i", &d.day, &d.month, &d.year);       /* issue: can't enter 0 
-														 before day and month */
+	scanf("%d%d%d", &d.day, &d.month, &d.year);
 
-	x = (valueOfN(d) - 621049) % 7;    /* day of the week in number */
-	
-	for (i = 0 ; i <= dayOfWeek[x].nChar ; ++i)       /* loop for i is less of 
-														 equal n character */
-		printf("%c", dayOfWeek[x].day[i]);
+	i = (days(d) - 621049) % 7;
 
-	printf("\n");
+	printf("%s\n", days_of_week[i].day);
 	
 	return 0;
 }
