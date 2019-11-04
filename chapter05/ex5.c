@@ -8,24 +8,29 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 
 int main(void)
 {
-	int  number,  right_digit;
-	char minus_sign;
+	int number, right_digit;
+	bool negative = false;
 
-	printf("Enter your number.\n");
+	printf("Enter your number:\n");
 	scanf("%i", &number);
 
+	if (number < 0) {
+		number = -number;
+		negative = true;
+	}
+
 	do {
-		if (number < 0) {
-			printf("%c", minus_sign = '-');
-			number = -number;
-			printf("%i", right_digit = number % 10);
-		} else if (number >= 0)
-			printf("%i", right_digit = number % 10);
+		right_digit = number % 10;
+		printf("%i", right_digit);
 		number /= 10;
 	} while (number != 0);
+
+	if (negative)
+		printf("-");
 
 	printf("\n");
 

@@ -5,31 +5,33 @@
  * the program so that negative numbers are correctly handled. For example, if
  * the number −8645 is typed in, the output of the program should be 5468−.
  *
- * This version uses two if statements rather than the else-if construct. It
- * has a 1 line of code less.
+ * This version uses a for loop instead of the do while loop.
+ *
  * By Faisal Saadatmand
  */
+
 #include <stdio.h>
+#include <stdbool.h>
+
 
 int main()
 {
-	int  number,  right_digit;
-	char minus_sign;
-
-	printf("Enter your number.\n");
+	int number;
+	bool negative = false;
+	
+	printf("Enter your number:\n");
 	scanf("%i", &number);
 
-	do {
-		if (number < 0) {
-			printf("%c", minus_sign = '-');
-			number = -number;
-		}
-		
-		if (number >= 0)
-			printf("%i", right_digit = number % 10);
+	if (number < 0) {
+		number = -number;
+		negative = true;
+	}
 
-		number /= 10;
-	} while (number != 0);
+	for ( ; number > 0; number /= 10)
+		printf("%i", number % 10);
+
+	if (negative)
+		printf("-");
 
 	printf("\n");
 
