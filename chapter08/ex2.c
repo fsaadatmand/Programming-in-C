@@ -48,64 +48,53 @@
 
 #include <stdio.h>
 
-struct date {
+struct Date {
 	int day;
 	int month;
 	int year;
 };
 
-int year(struct date x)
-{
-	int value;
+/* functions */
+int year(const int year, const int month);
+int month(const int month);
+int formula(const struct Date x);
 
-	if (x.month <= 2)
-		value = x.year - 1;
-	else
-		value = x.year;
-	return value;
+/* month: return the value of the year according to the Gregorian calendar */
+int year(const int year, const int month)
+{
+	return (month <= 2) ? year - 1 : year;
 }
 
-int month(struct date x)
+/* month: returns the value of month according to the Gregorian calendar */
+int month(const int month)
 {
-	int value;
-	 
-	if (x.month <= 2)
-		value = x.month + 13;
-	else
-		value = x.month + 1;
-	return value;
+	return (month <= 2) ? month + 13 : month + 1;
 }
 
-/* Function to calculate the elapsed number of days */
-int formula(struct date x)
+/* days: calculate the elapsed number of days since Unix epoch */
+int days(const struct Date x)
 {
-	int N;
+	return (1461 * year(x.year, x.month)) / 4
+		   + (153 * month(x.month)) / 5 + x.day;
+}
 
-	N = (1461 * year(x)) / 4 + (153 * month(x)) / 5 + x.day;
-
-	if (x.year > 1800 && x.year < 1900) {          /* Mar 1, 1800 to Feb 28, 1900 */
-		if (x.month == 3 || x.month == 2)
-			++N;
-	} else if (x.year > 1700 && x.year < 1800) {   /* Mar 1, 1700 to Feb 28, 1800 */
-		if (x.month == 3 || x.month == 2)
-			N += 2;
-	}
-	return N;
+/* duration: returns the elapsed number of days between two dates */
+int duration(const struct Date begin, const struct Date end)
+{
+	return days(end) - days(begin);
 }
 
 int main(void)
 {
-	struct date start, end;
+	struct Date begin, end;
 
-	int year(struct date x), month(struct date x), formula(struct date x);
-
-	printf("Enter start date (dd mm yyyy): ");
-	scanf("%i%i%i", &start.day, &start.month, &start.year);
+	printf("Enter begin date (dd mm yyyy): ");
+	scanf("%d%d%d", &begin.day, &begin.month, &begin.year);
 
 	printf("Enter end date (dd mm yyyy): ");
-	scanf("%i%i%i", &end.day, &end.month, &end.year);
+	scanf("%d%d%d", &end.day, &end.month, &end.year);
 
-	printf("Number of elapsed days is %i\n", formula(end) - formula(start));
+	printf("Number of elapsed days is %i\n", duration(begin, end));
 	
 	return 0;
 }
