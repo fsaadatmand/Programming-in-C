@@ -9,32 +9,34 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+int strToInt(const char []);
+
 int strToInt(const char string[])
 {
-	int  i, intValue, result = 0;
-	bool negNumber = false;
+	int  i, digit, number = 0;
+	bool negative = false;
 
-	if (string[0] == '-') {
-		i = 1;
-		negNumber = true;
-	} else
-		i = 0;
+	for (i = 0; string[i] == ' '; ++i) /* skip leading whitespaces */
+		;
 
-	for (; string[i] >= '0' && string[i] <= '9'; ++i) {
-		intValue = string[i] - '0';
-		result = result * 10 + intValue;
+	if (string[i] == '-') {
+		++i;
+		negative = true;
 	}
 
-	if (negNumber == true)
-		result *= -1;
+	for (; string[i] >= '0' && string[i] <= '9'; ++i) {
+		digit = string[i] - '0';
+		number = number * 10 + digit;
+	}
 
-	return result;
+	if (negative)
+		number *= -1;
+
+	return number;
 }
 
 int main(void) 
 {
-	int strToInt(const char string[]);
-
 	printf("%i\n", strToInt("-245"));
 	printf("%i\n", strToInt("100") + 25);
 	printf("%i\n", strToInt("13x5"));
