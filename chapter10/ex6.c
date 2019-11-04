@@ -12,49 +12,49 @@
 #include <stdio.h>
 
 struct entry {
-	int          value;
+	int value;
 	struct entry *previous;
 	struct entry *next;
 };
 
-/* Function to insert element in a list after the element pointed to */
-void insertEntry (struct entry *elementIn, struct entry *location)
+/* functions */
+struct entry* insertEntry (struct entry *, struct entry *); 
+struct entry* removeEntry(struct entry *);
+
+/* insertEntry: insert element AFTER pos in the list */
+struct entry* insertEntry (struct entry *element, struct entry *pos)
 {	
-	if (location->next != (struct entry *) 0) {
-		elementIn->next = location->next;
-		(location->next)->previous = elementIn;
-		location->next = elementIn;
-		elementIn->previous = location;
-	} else {                               /* Last element in the list */
-		elementIn->next = location->next;
-		location->next = elementIn;
-		elementIn->previous = location;
-	}
+	if (pos->next)
+		pos->next->previous = element;
+
+	element->next = pos->next;
+	element->previous = pos;
+
+	pos->next = element;
+
+	return element;
 }
 
-/* Function to remove the element pointed to in a list */
-void removeEntry(struct entry *element)
+/* removeEntry: remove the element in a list. Return a pointer to the entry
+ * just after the one removed */
+struct entry* removeEntry(struct entry *element)
 {
-	if (element->next != (struct entry *) 0) {
+	if (element->previous)
 		(element->previous)->next = element->next;
+
+	if (element->next)
 		(element->next)->previous = element->previous;
-	} else                                 /* Last element in the list */
-		(element->previous)->next = element->next;
+
+	return element->next;
 }
 
 int main(void) 
 {
-	void insertEntry (struct entry *elementIn, 
-			struct entry *location), 
-		 removeEntry(struct entry * element);
-
-	struct entry n0, n1, n2, n3, n4, n5, n6;
-	struct entry *list_pointer = &n0; 
-
-	n0.next = &n1;
+	struct entry n1, n2, n3, n4, n5, n6;
+	struct entry *list_pointer = &n1;
 
 	n1.value = 100;
-	n1.previous = &n0;
+	n1.previous = NULL;
 	n1.next = &n2;
 
 	n2.value = 200;
@@ -71,17 +71,22 @@ int main(void)
 
 	n5.value = 500;
 	n5.previous = &n4;
-	n5.next = (struct entry *) 0;
+	n5.next = NULL;
 
 	n6.value = 600;
 
-//	insertEntry(&n6, &n5, 1);
-	removeEntry(&n1);
+	/* comment or uncommet to test */
+	insertEntry(&n6, &n2);
+//	list_pointer = removeEntry(&n2);
+//	removeEntry(&n3);
+//	removeEntry(&n5);
 
-	list_pointer = list_pointer->next;
-	while (list_pointer != (struct entry *) 0) {
-		printf("%i ", list_pointer->value);
-		printf("%p\n", list_pointer->next);
+	int i = 1;
+	while (list_pointer) {
+		printf("n%i (%p)\n", i++, list_pointer);
+		printf(" value: %i\n", list_pointer->value);
+		printf(" next: %p\n", list_pointer->next);
+		printf(" previous: %p\n", list_pointer->previous);
 		list_pointer = list_pointer->next;
 	}
 
