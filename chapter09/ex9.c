@@ -19,115 +19,80 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-/* Function to determine if one character string exists inside another string */
-int findString(char source[], const char search[])
+/* functions */
+void insertString(char [], const char [], int);
+void removeString(char [], int, int);
+int findString(const char [], const char []);
+bool replaceString(char [], const char [], const char []);
+
+void insertString(char source[], const char str[], int pos)
 {
-	int i = 0, j = 0, position = 0;
-	bool matchFound = false;
+	int i , len, offset, end;
 
-	while (source[i] != '\0') {
-		if (source[i] == search[j]) {
-			matchFound = true;
-			position = i;
-			while (search[j] != '\0' && matchFound)
-				if (search[j] != source[i])
-					matchFound = false;
-				else {
-					++j;
-					++i;
-				}
-			if (matchFound == true)
-				return position;          /* found a match */
-			else {                        /* reset indexes for the outter loop */
-				i = position;
-				++i;
-				j = 0;
-			} 
-		} else                           /* keep searching in source */
-			++i;
-	}
+	/* find the length of str */
+	for (len = 0; str[len] != '\0'; ++len)
+		;
 
-	if (source[i] == '\0' && matchFound == false)
-		 position = -1;
+	/* copy characters starting at pos to the right by offset value */
+	offset = end = pos + len;
+	for (i = pos; i < end; ++i, ++offset)
+		source[offset] = source[i];
 
-	return position;
-}		
+	/* copy str into source starting at pos */
+	for (i = 0; str[i] != '\0'; ++i, ++pos)
+		source[pos] = str[i];
+}
 
-/* Function to remove a specified number of charachters from */
-void removeString(char source[], int index, int nChar)
+void removeString(char source[], int pos, int count)
 {	
 	int i;
 
-	i = index + nChar;
-	while (source[i] != '\0') {      /* remove word */
-		source[index] = source[i];
-		++index;
-		++i;
-	}
-
-	while (source[index] != '\0') {  /* remove spaces */
-		source[index] = '\0';
-		++i;
-	}
+	for (i = pos + count; source[i] != '\0'; ++i, ++pos)
+		/* copy characters to from index i to pos */
+		source[pos] = source[i];
+	source[pos] = '\0';
 }
 
-/* Function to insert one character string into another string */
-void insertString(char source[], const char inStr[], int position)
+/* findString: to determine if one character string exists inside another
+ * string */
+int findString(const char source[], const char sought[])
 {
-	int i = 0, countSource = 0, countInStr = 0;
+	int i, j, k;
 
-	while (inStr[i] != '\0')   /* count number of char in inStr */
-		++i;
-	countInStr = i;
-
-	while (source[i] != '\0')  /* count number of char in source */
-		++i;
-	countSource = i;
-
-	/* move chars in source starting from the end, including the null char */
-	for (i = countSource; i >= position; --i) 
-		source[i + countInStr] = source[i];
-
-	for (i = 0; i < countInStr; ++i) {           /* insert inStr into source */
-		source[position] = inStr[i];
-		++position;
+	for (i = 0; source[i] != '\0'; ++i) {
+		for (j = i, k = 0; source[j] == sought[k]; ++j, ++k)
+			;
+		if (sought[k] == '\0') // match is found if sought reached end
+			return i; // return match position in source
 	}
-}
+	return -1;
+}		
 
 bool replaceString(char source[], const char s1[], const char s2[])
 {
-	int findString(char source[], const char search[]);
-	void removeString(char source[], int index, int nChar);
-	void insertString(char source[], const char inStr[], int position);
+	int i, pos;
 
-	int  i = 0, position;
-	bool succeeded = false;
+	for (i = 0; s1[i] != '\0'; ++i)
+		;
 
-	while (s1[i] != '\0')
-		++i;
+	if ((pos = findString(source, s1)) < 0)
+		return false;
 
-	position = findString(source, s1);
-	if (position == -1)           /* match not found; terminate function */
-		return succeeded;
-	else {
-		removeString(source, position, i);
-		insertString(source, s2, position);
-		succeeded = true;
-	}
+	removeString(source, pos, i);
+	insertString(source, s2, pos);
 
-	return succeeded;
+	return true;
 }
 
 int main(void) 
 {
-	bool replaceString(char source[], const char s1[], const char s2[]);
-
 	bool stillFound;
-	char text[40] = "0123456789 ten eleven   .";
+	char text[] = "0123456789 ten eleven   .";
 
-	do
+	do {
+		/* remove all blank spaces */
 		stillFound = replaceString(text," ", "");
-	while (stillFound);           /* remove all blank spaces */
+	} while (stillFound);
 
 	printf("%s\n", text);
 
