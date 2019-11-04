@@ -57,7 +57,8 @@ struct Date {
 /* functions */
 int year(const int year, const int month);
 int month(const int month);
-int formula(const struct Date x);
+int days(const struct Date);
+int duration(const struct Date, const struct Date);
 
 /* month: return the value of the year according to the Gregorian calendar */
 int year(const int year, const int month)
