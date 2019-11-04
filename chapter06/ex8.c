@@ -3,7 +3,7 @@
  * write a small program to test the feature out.
  *
  * This a modified version of ex6. This version uses an array (Prime) to store
- * the result and a variable  length array to produce a clean output (without
+ * the result and a variable length array to produce a clean output (without
  * zeroes) for printf. See steps 7 and 8.
  *
  * By Faisal Saadatmand

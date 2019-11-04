@@ -5,6 +5,7 @@
  * that the value 999 can be keyed in by the user to indicate that the last
  * response has been entered. (Hint: You can use the break statement here if
  * you want to exit your loop.)
+ *
  * By Faisal Saadatmand
  */
 
@@ -12,9 +13,9 @@
 
 int main(void)
 {
-	int ratingCounters[11], i, response;
+	int i, ratingCounters[11], response;
 
-	for (i =1; i <= 10; ++i)
+	for (i = 0; i < 11; ++i)
 		ratingCounters[i] = 0;
 
 	printf("Enter your responses\n");
@@ -23,17 +24,17 @@ int main(void)
 		scanf("%i", &response );
 		if (response == 999)
 			break;
-		else if (response < 1 || response > 10)
+		if (response < 1 || response > 10)
 			printf("Invalid response: %i\n", response);
 		else
 			++ratingCounters[response];
-		}
+	}
 
-		printf("\n\nRating   Number of Responses\n");
-		printf("-------  -----------------------\n");
-		
-		for (i = 1; i <= 10; ++i)
-			printf("%4i%14i\n", i, ratingCounters[i]);
+	printf("\n\nRating   Number of Responses\n");
+	printf("-------  -----------------------\n");
+
+	for (i = 0; i < 11; ++i)
+		printf("%4i%14i\n", i, ratingCounters[i]);
 
 	return 0;
 }

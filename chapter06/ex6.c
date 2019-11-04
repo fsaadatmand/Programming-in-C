@@ -4,6 +4,7 @@
  * and one to store the current one. Rewrite Program 6.3 so that arrays are not
  * used. Because you’re no longer using an array, you need to display each
  * Fibinacci number as you generate it.
+ *
  * By Faisal Saadatmand
  */
 

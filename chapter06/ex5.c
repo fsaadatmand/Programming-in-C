@@ -1,7 +1,13 @@
 /*
  * 5. What output do you expect from the following program?
- * Answer: this program generate numbers according to the Fibonacci sequence.
+ *
+ * By Faisal Saadatmand
  */
+
+ /*
+  * Answer: this program generate the first 10 numbers in the Fibonacci
+  * sequence.
+  */
 
 #include <stdio.h>
 

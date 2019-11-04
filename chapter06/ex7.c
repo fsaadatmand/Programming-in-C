@@ -24,8 +24,8 @@ int main(void) {
 	/* Step 1: define an array of integers P. Set all elements of P[i] to 0,
 	 * 2 <= i <= n */
 	size_t i, j;  /* size_t is unsigned long */
-	int P[1000001]; /* 151 because the array's index starts at 0 */
-	const size_t n = 1000000;
+	int P[151]; /* 151 because the array's index starts at 0 */
+	const size_t n = 150;
 
 	for (i = 2; i <= n; ++i)
 		P[i] = 0;

@@ -1,6 +1,7 @@
 /*
  * 4. Write a program that calculates the average of an array of 10
  * floating-point values.
+ *
  * By Faisal Saadatmand
  */
 
@@ -8,7 +9,7 @@
 
 int main(void) {
 
-	int   i;
+	int i;
 	float number, sum = 0, average = 0, array[10];
 
 	printf("Enter 10 numbers to calculate their average: \n");
@@ -16,7 +17,7 @@ int main(void) {
 	for (i = 0; i < 10; ++i) {
 		scanf("%f", &number);
 		array[i] = number;
-		sum  += array[i];
+		sum += array[i];
 	}
 
 	printf("Average = %.2f\n", average = sum / 10);
