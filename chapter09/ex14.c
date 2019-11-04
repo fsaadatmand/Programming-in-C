@@ -9,50 +9,50 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void intToStr(int intValue, char string[])
+#define MAXLEN 20 
+
+void intToStr(int, char []);
+
+void intToStr(int number, char str[])
 {
-	int i, j = 0, rightNumber;
-	char reversedString[40];
-	bool negativeNumber = false;
-	
-	if (intValue < 0) {                  /* detect negative value integers */
-		intValue = -intValue;
-		negativeNumber = true;
-	}
-	
-	for (i = 0; intValue != 0; ++i) {    /* convert intValue in reverse */
-		rightNumber = intValue % 10;     /* extract numbers from the right */
-		intValue /= 10;
-		reversedString[i] = rightNumber + '0';
+	int i, rNumber;
+	bool negative = false;
+
+	/* handle negative numbers */
+	if (number < 0) {
+		number = -number;
+		negative = true;
 	}
 
-	if (negativeNumber) {                /* insert minus sign in string[0] */
-		string[j] = '-';
-		++j;
+	/* reverse the number */
+	rNumber = 0;
+	while (number > 0) {
+		rNumber = rNumber * 10 + number % 10;
+		number /= 10;
 	}
 
-	--i;                                 /* start from the correct end position */ 
-	while (i >= 0) {                     /* reverse the character string */
-		string[j] = reversedString[i];
-		--i;
-		++j;
-	}
+	/* copy reversed number into str */
+	i = 0;
+	if (negative)
+		str[i++] = '-';
 
-	string[j] = '\0';                    /* insert null character at the end */
+	while (rNumber > 0) {
+		str[i++] = rNumber % 10 + '0';
+		rNumber /= 10;
+	}
+	str[i] = '\0';
 }
 
 int main(void) 
 {
-	void intToStr(int intValue, char string[]);
-
 	int intValue;
-	char str[40];
+	char string[MAXLEN];
 
 	printf("Enter integer value: ");
 	scanf("%i", &intValue);
 
-	intToStr(intValue, str);
-	printf("%s\n", str);
+	intToStr(intValue, string);
+	printf("%s\n", string);
 
 	return 0;
 }
