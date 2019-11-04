@@ -3,42 +3,42 @@
  * with Functions.” Be certain that pointers are exclusively used by the
  * function, including index variables in the loops.
  *
- * by Faisal Saadatmand 
+ * By Faisal Saadatmand 
  */
 
 #include <stdio.h>
 
-void sort(int *array, int n)
-{
-	int temp;
-	int * const arrayEnd = array + n;
-	int *ptr;
+#define SIZE 16
 
-	for ( ; array < arrayEnd; ++array)
-		for (ptr = array + 1; ptr < arrayEnd; ++ptr)
-			if (*array > *ptr) {
-				temp = *array;
-				*array = *ptr;
-				*ptr = temp;
+void sort(int *, int);
+
+void sort(int *p, int n)
+{
+	int *q, *const end = p + n, temp;
+
+	for ( ; p < end; ++p)
+		for (q = p + 1; q < end; ++q)
+			if (*p > *q) {
+				temp = *p;
+				*p = *q;
+				*q = temp;
 			}
 }
 
 int main (void) 
 {
 	int i;
-	int array[16] = { 34, -5, 2, 0, 12, 100, 56, 22,
-                    44, -3, -9, 11, 17, 29, 6, 18 };
-
-	void sort(int *array, int n);
+	int array[SIZE] = { 34, -5, 2, 0, 12, 100, 56, 22,
+						44, -3, -9, 11, 17, 29, 6, 18 };
 
 	printf("The array before the sort:\n");
-	for (i = 0; i < 16; ++i)
+	for (i = 0; i < SIZE; ++i)
 		printf("%i ", array[i]);
 
-	sort (array, 16);
+	sort (array, SIZE);
 
 	printf("\n\nThe array after the sort:\n");
-	for (i = 0; i < 16; ++i)
+	for (i = 0; i < SIZE; ++i)
 		printf("%i ", array[i]);
 
 	printf("\n");
