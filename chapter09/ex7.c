@@ -15,32 +15,28 @@
 
 #include <stdio.h>
 
-void insertString(char source[], const char inStr[], int position)
+void insertString(char [], const char [], int);
+
+void insertString(char source[], const char str[], int pos)
 {
-	int i = 0, countSource = 0, countInStr = 0;
+	int i , len, offset, end;
 
-	while (inStr[i] != '\0')   /* count number of char in inStr */
-		++i;
-	countInStr = i;
+	/* find the length of str */
+	for (len = 0; str[len] != '\0'; ++len)
+		;
 
-	while (source[i] != '\0')  /* count number of char in source */
-		++i;
-	countSource = i;
+	/* copy characters starting at pos to the right by offset value */
+	offset = end = pos + len;
+	for (i = pos; i < end; ++i, ++offset)
+		source[offset] = source[i];
 
-    /* move chars in source starting from the end, including the null char*/
-	for (i = countSource; i >= position; --i)
-		source[i + countInStr] = source[i];
-
-	for (i = 0; i < countInStr; ++i) {        /* insert inStr into source */
-		source[position] = inStr[i];
-		++position;
-	}
+	/* copy str into source starting at pos */
+	for (i = 0; str[i] != '\0'; ++i, ++pos)
+		source[pos] = str[i];
 }
 
 int main(void) 
 {
-	void insertString(char source[], const char inStr[], int position);
-
 	char text[30] = "the wrong son";
 	
 	insertString(text, "per", 10);
