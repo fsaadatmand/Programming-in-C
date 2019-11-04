@@ -11,27 +11,24 @@
 #include <stdio.h>
 
 struct entry {
-	int            value;
-	struct entry   *next;
+	int value;
+	struct entry *next;
 };
 
 void insertEntry(struct entry *, struct entry *);
 
-void insertEntry(struct entry *insertElement, struct entry *afterElement)
+void insertEntry(struct entry *newElement, struct entry *ListElement)
 {
-	insertElement->next = afterElement->next;   /* copy previous element's
-												   pointer to the new entry */
-	afterElement->next = insertElement;         /* Link the new entry to list */
+	/* Copy previous element's pointer to the new entry */
+	newElement->next = ListElement->next;
+	/* Link the new entry to list */
+	ListElement->next = newElement;
 }
 
 int main(void) 
 {
-
-	struct entry n0, n1, n2, n3, n4, n5, n6;
-	struct entry *list_pointer = &n0; /* pointer to the beginning of the list */
-	
-	n0.next = &n1;         /* special structure to insert element at
-							  the beginning of the list */
+	struct entry n1, n2, n3, n4, n5, n6; /* list entries */
+	struct entry *list_pointer = &n1; /* pointer to the beginning of the list */
 
 	n1.value = 100;
 	n1.next = &n2;
@@ -46,17 +43,24 @@ int main(void)
 	n4.next = &n5;
 	
 	n5.value = 500;
-	n5.next = (struct entry *) 0; /* Mark list end with null pointer */
+	n5.next = NULL;
 
+	/* new entrey */
 	n6.value = 600;
-	
-	insertEntry(&n6, &n0);
+	n6.next = NULL;
 
-	list_pointer = list_pointer->next;       /* skip the value of the special
-												structure */
-	while (list_pointer != (struct entry *) 0) {
-		printf("%i ", list_pointer->value);
-		printf("%p\n", list_pointer->next);
+	/* special struct to insert an element at the beginning */
+	struct entry n0 = {0, &n1};
+	/* insert n6 after n0, i.e before n1 */
+	insertEntry(&n6, &n0);
+	/* update list_pointer to point the new first element, i.e. n6 */
+	list_pointer = n0.next;
+
+	int i = 1;
+	while (list_pointer != NULL) {
+		printf("n%i (%p)\n", i++, list_pointer);
+		printf(" value: %i\n", list_pointer->value);
+		printf(" next: %p\n", list_pointer->next);
 		list_pointer = list_pointer->next;
 	}
 }
