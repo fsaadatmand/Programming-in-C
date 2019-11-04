@@ -10,7 +10,7 @@
 #include <stdio.h>
 
 struct entry {
-	int          value;
+	int value;
 	struct entry *previous;
 	struct entry *next;
 };
@@ -18,10 +18,10 @@ struct entry {
 int main(void) 
 {
 	struct entry n1, n2, n3, n4, n5;
-	struct entry *list_pointer = &n1, *end_pointer = &n5;
+	struct entry *list_pointer = &n1;
 
 	n1.value = 100;
-	n1.previous = (struct entry *) 0;
+	n1.previous = NULL;
 	n1.next = &n2;
 
 	n2.value = 200;
@@ -38,20 +38,15 @@ int main(void)
 
 	n5.value = 500;
 	n5.previous = &n4;
-	n5.next = (struct entry *) 0;
+	n5.next = NULL;
 
-	printf("next values\n");
-
-	while (list_pointer != (struct entry *) 0) {
-		printf("%i\n", list_pointer->value);
+	int i = 1;
+	while (list_pointer) {
+		printf("n%i (%p)\n", i++, list_pointer);
+		printf(" value: %i\n", list_pointer->value);
+		printf(" next: %p\n", list_pointer->next);
+		printf(" previous: %p\n", list_pointer->previous);
 		list_pointer = list_pointer->next;
-	}
-	
-	printf("\nprevious values\n");
-
-	while (end_pointer != (struct entry *) 0) {
-		printf("%i\n", end_pointer->value);
-		end_pointer = end_pointer->previous;
 	}
 
 	return 0;
