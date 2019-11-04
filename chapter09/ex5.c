@@ -20,6 +20,8 @@
 
 int findString(const char [], const char []);
 
+/* findString: to determine if one character string exists inside another
+ * string */
 int findString(const char source[], const char sought[])
 {
 	int i, j, k;
