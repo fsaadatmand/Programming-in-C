@@ -7,31 +7,29 @@
 
 #include <stdio.h>
 
+#define SIZE 1000
+
+void readLine(char *);
+
 /* Function to read a line of text from the terminal */
 void readLine(char *buffer)
 {
-	char character;
-	
-	printf("Enter a line of text, up to 80 characters. Hit enter when done: \n");
+	char ch;
 			
 	do {
-		character = getchar();
-		*buffer++  = character;
-	} while (character != '\n');
+		ch = getchar();
+		*buffer++  = ch;
+	} while (ch != '\n');
 
 	*buffer = '\0';
 }
 
 int main(void)
 {
-	int  i;
-	char line[81];
+	char line[SIZE];
 
-	void readLine(char *buffer);
-
-	for (i = 0; i < 3; ++i) {
-		readLine(line);
-		printf("%s\n", line);
-	}
+	printf("Enter a line of text (max %i characters):\n", SIZE);
+	readLine(line);
+	printf("%s", line);
 	return 0;
 }
