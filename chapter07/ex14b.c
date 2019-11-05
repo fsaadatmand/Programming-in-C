@@ -8,9 +8,11 @@
 
 #include <stdio.h>
 
+/* globals */
 int array[5] = {2, 5, 21, 18, 5};
 const int size = 5;
 
+/* functions */
 int arraySum();
 
 int arraySum()
@@ -19,6 +21,7 @@ int arraySum()
 
 	for (i = 0; i < size; ++i)
 		sum += array[i];
+
 	return sum;
 }
 
