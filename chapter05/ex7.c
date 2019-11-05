@@ -10,6 +10,7 @@
  * value of d was less than p. Modify Program 5.10 to incorporate these two
  * changes. Then run the program to verify its operation. (Note: In Chapter 6,
  * you discover even more efficient ways of generating prime numbers.)
+ *
  * By Faisal Saadatmand
  */
 
@@ -22,14 +23,15 @@ int main(void)
 	bool isPrime;
 
 	for (p = 2; p <= 50; ++p) {
-		if (p % 2 != 0)
+		if (p == 2 || p % 2)
 			isPrime = true;
-		for (d = 2; d < p && isPrime == true; ++d)
+		for (d = 2; isPrime && d < p; ++d)
 			if (p % d == 0)
 				isPrime = false;
-
-		if (isPrime != false)
+		if (isPrime != false) {
 			printf("%i ", p);
+			isPrime = false;
+		}
 	}
 
 	printf("\n");
