@@ -16,12 +16,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-/* global variables*/
+/* globals */
 unsigned *p; /* prime sieve pointer (array) */
 size_t pSize = 1000000;
 
-bool prime(const size_t n);
-unsigned *generatePrimeSieve(const size_t n);
+/* functions */
+unsigned *generatePrimeSieve(const size_t);
+bool prime(const size_t);
 
 unsigned *generatePrimeSieve(const size_t n)
 {
@@ -63,16 +64,15 @@ int main(void)
 {
 	int number, input;
 
-	do {
+	while (true) {
 		printf("Enter a number to check for primality: ");
-		input = scanf("%i", &number);
-		if (prime(number))
-			printf(" %i is a prime number\n", number);
-		else
-			printf(" %i is not a prime number\n", number);
-	} while (input && input != EOF);
-	printf("\n");
+		if (!(input = scanf("%i", &number)) || input == EOF)
+			break;
+		printf(" %i %s a prime number.\n", number,
+				(prime(number)) ? "is" : "is NOT");
+	}
 
+	/* clean up */
 	free(p);
 	p = NULL;
 
