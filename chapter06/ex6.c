@@ -21,9 +21,10 @@ int main(void)
 
 	for (i = 2 ; i < 15; ++i) {
 		FibCurrent   = FibPrevious1 + FibPrevious2;
+		printf("%i\n", FibCurrent);
 		FibPrevious1 = FibPrevious2;
 		FibPrevious2 = FibCurrent;
-		printf("%i\n", FibCurrent);
 	}
+
 	return 0;
 }
