@@ -17,6 +17,10 @@
 
 #include <stdio.h>
 
+/* functions */
+void transposeMatrix(int [][5], int [][4]);
+void diplayMatrix(int [][5]);
+
 void transposeMatrix(int a[4][5], int b[5][4])
 {
 	int row, column;
@@ -44,9 +48,6 @@ int main (void)
 					{ 3, 33, 5, 11,14 },
 					{ 10, 3, 8, 20, 7 },
 					{ 41, 82, 75, 55, 67 } };
-	
-	void transposeMatrix(int a[4][5], int b[5][4]);
-	void diplayMatrix(int matrix[][5]);
 
 	transposeMatrix(M, N);
 	displayMatrix(N);

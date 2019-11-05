@@ -17,6 +17,11 @@
 
 #include <stdio.h>
 
+/* functions */
+void transposeMatrix(int nRows, int nColumns,
+					 int a[nRows][nColumns], int b[nColumns][nRows]);
+void diplayMatrix(int nRows, int nColumns, int matrix[nRows][nColumns]);
+
 void transposeMatrix(int nRows, int nColumns, int a[nRows][nColumns], int b[nColumns][nRows])
 {
 	int row, column;
@@ -44,10 +49,6 @@ int main(void)
 					{ 10, 3, 8, 20, 7 },
 					{ 41, 82, 75, 55, 67 } };
 	int N[5][4];
-
-	void transposeMatrix(int nRows, int nColumns, int a[nRows][nColumns],
-                          int b[nColumns][nRows]);
-	void diplayMatrix(int nRows, int nColumns, int matrix[nRows][nColumns]);
 
 	transposeMatrix(4, 5, M, N);
 	displayMatrix(5, 4, N);
