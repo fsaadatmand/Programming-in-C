@@ -8,7 +8,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool prime(int number);
+/* functions */
+bool prime(int);
 
 bool prime(int number)
 {
@@ -29,16 +30,14 @@ bool prime(int number)
 int main (void)
 {
 	int number, input;
-	
-	do {
+
+	while (true) {
 		printf("Enter a number to check for primality: ");
-		input = scanf("%i", &number);
-		if (prime(number))
-			printf(" %i is a prime number\n", number);
-		else
-			printf(" %i is not a prime number\n", number);
-	} while (input && input != EOF);
-	printf("\n");
+		if (!(input = scanf("%i", &number)) || input == EOF)
+			break;
+		printf(" %i %s a prime number.\n", number,
+				(prime(number)) ? "is" : "is NOT");
+	}
 
 	return 0;
 }
