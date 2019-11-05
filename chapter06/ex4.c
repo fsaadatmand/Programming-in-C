@@ -19,8 +19,10 @@ int main(void) {
 		array[i] = number;
 		sum += array[i];
 	}
+	
+	average = sum / 10;
 
-	printf("Average = %.2f\n", average = sum / 10);
+	printf("Average %.2f\n", average);
 
 	return 0;
 }
