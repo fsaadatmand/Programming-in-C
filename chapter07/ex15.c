@@ -2,30 +2,41 @@
  * 15. Modify Program 7.14 so that the user is asked again to type in the value
  * of the base if an invalid base is entered. The modified program should
  * continue to ask for the value of the base until a valid response is given.
+ *
  * By Faisal Saadatmand
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 
-int         gConvertedNumber[16];
-long int    gNumberToConvert;
-int         gBase;
-int         gDigit = 0;
+/* globals */
+int gConvertedNumber[64];
+long int gNumberToConvert;
+int gBase;
+int gDigit = 0;
+
+/* functions */
+void getNumberAndBase(void);
+void convertNumber(void);
+void displayConvertedNumber(void);
 
 void getNumberAndBase(void)
 {
+	bool repeat;
+
 	printf("Number to be converted? ");
 	scanf("%li", &gNumberToConvert);
 
-	printf("Base? ");
-	scanf("%i", &gBase);
+	repeat = true;
+	while (repeat) {
+		printf("Base? ");
+		scanf("%i", &gBase);
 
-	if (gBase < 2 || gBase > 16)
-		do {
-			printf("Invalid base - must be between 2 and 16\n");
-			printf("Base? ");
-			scanf("%i", &gBase);
-		} while (gBase < 2 || gBase > 16);
+		if (gBase >= 2 && gBase <= 16)
+			repeat = false;
+
+		printf("Invalid base - must be between 2 and 16\n");
+	}
 }
 	
 void convertNumber(void)
@@ -56,9 +67,6 @@ void displayConvertedNumber(void)
 
 int main(void)
 {
-	void getNumberAndBase(void), convertNumber(void), 
-		 displayConvertedNumber(void);
-
 	getNumberAndBase();
 	convertNumber();
 	displayConvertedNumber();
