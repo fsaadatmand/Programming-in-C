@@ -1,4 +1,5 @@
 3. Which of the following are invalid constants? Why?
+
 123.456     0x10.5     0X0G1
 0001        0xFFFF     123L
 0Xab05      0L         -597.25
@@ -9,9 +10,8 @@
 1.234L      197u      100U
 0XABCDEFL   0xabcu    +123
 
-The following are invalid constants:
+By Faisal Saadatmand
 
-98.6F		F is an invalid letter.
 0x10.5		Hexadecimal values don't take floating points
 1.2Fe-7		The F should be at the end of the constant.
 0X0G1		G is an invalid hexadecimal character.
