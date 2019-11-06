@@ -19,13 +19,13 @@
 /* functions */
 void sort(int [], int, bool);
 
-void sort(int a[], int n, bool descending)
+void sort(int a[], int n, bool sordOrder)
 {
 	int i, j, temp, cond;
 
 	for (i = 0; i < n - 1; ++i) 
 		for (j = i + 1; j < n; ++j) {
-			cond = (descending) ? a[i] < a[j] : a[i] > a[j];
+			cond = (sordOrder) ? a[i] < a[j] : a[i] > a[j];
 			if (cond) {
 				temp = a[i];
 				a[i] = a[j];
@@ -39,7 +39,6 @@ int main(void)
 	int i;
 	int array[16] = {34, -5, 6, 0, 12, 100, 56, 22,
                      44, -3, -9, 12, 17, 22, 6, 11};
-
 
 	printf("\nBefore sorting:\n");
 	for (i = 0; i < 16; ++i)
