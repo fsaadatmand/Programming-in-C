@@ -2,35 +2,33 @@
  * 7. Write a function that raises an integer to a positive integer power. Call
  * the function x_to_the_n() taking two integer arguments x and n.  Have the
  * function return a long int, which represents the results of calculating x^n.
+ *
  * By Faisal Saadatmand
  */
 
-
 #include <stdio.h>
+
+/* functions */
+long int x_to_the_n(int, int);
 
 long int x_to_the_n(int x, int n)
 {
-	long int result = 1;
+	int i;
+	long int result;
 
-		while (n > 0) {
-			result *= x;
-			--n;
-		}
+	result = 1;
+	for (i = 0; i < n; ++i)
+		result *= x;
+
 	return result;
 }
 
 int main(void) 
 {
-	long int x_to_the_n(int x, int n);
-
-	printf("Result = %li\n", x_to_the_n(2, 0));
-	printf("Result = %li\n", x_to_the_n(2, 1));
-	printf("Result = %li\n", x_to_the_n(2, 2));
-	printf("Result = %li\n", x_to_the_n(2, 3));
-	printf("Result = %li\n", x_to_the_n(2, 4));
-	printf("Result = %li\n", x_to_the_n(2, 5));
-	printf("Result = %li\n", x_to_the_n(2, 6));
-	printf("Result = %li\n", x_to_the_n(2, 7));
+	int x, n;
+	
+	for (n = 0, x = 2; n < 8; ++n) 
+		printf("%i^%i = %li\n", x, n , x_to_the_n(x, n));
 
 	return 0;
 }
