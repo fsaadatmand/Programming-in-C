@@ -9,8 +9,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#define SIZE 64 /* see chapter 14. The #define Statement */
+
 /* globals */
-int gConvertedNumber[64];
+int gConvertedNumber[SIZE];
 long int gNumberToConvert;
 int gBase;
 int gDigit = 0;
@@ -22,19 +24,14 @@ void displayConvertedNumber(void);
 
 void getNumberAndBase(void)
 {
-	bool repeat;
-
 	printf("Number to be converted? ");
 	scanf("%li", &gNumberToConvert);
 
-	repeat = true;
-	while (repeat) {
+	while (true) {
 		printf("Base? ");
 		scanf("%i", &gBase);
-
-		if (gBase >= 2 && gBase <= 16)
-			repeat = false;
-
+		if (gBase >= 2 && gBase <= 16) /* break if base is withing range */
+			break;
 		printf("Invalid base - must be between 2 and 16\n");
 	}
 }
@@ -70,6 +67,5 @@ int main(void)
 	getNumberAndBase();
 	convertNumber();
 	displayConvertedNumber();
-
 	return 0;
 }
