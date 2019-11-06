@@ -1,8 +1,12 @@
 /*
  * 3. What output would you expect from the following program?
- *    Answer: Testing.......1...2..3
+ *
+ *		SEE BELOW
+ *
  * By Faisal Saadatmand
-  */
+ */
+
+ /*  Answer: Testing.......1...2..3 */
 
 #include <stdio.h>
 
