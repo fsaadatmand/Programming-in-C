@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 
+/* globals */
 int M[4][5] = { { 5, 6, 12, 2, 24 },
 				{ 3, 33, 5, 11,14 },
 				{ 10, 3, 8, 20, 7 },
@@ -16,6 +17,7 @@ int M[4][5] = { { 5, 6, 12, 2, 24 },
 int nRows = 4;
 int nColumns = 5;
 
+/* functions */
 void transposeMatrix(int a[nRows][nColumns], int b[nColumns][nRows]);
 void diplayMatrix(int matrix[nRows][nColumns]);
 
