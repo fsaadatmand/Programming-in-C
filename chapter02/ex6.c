@@ -1,8 +1,12 @@
 /*
  * 6. What output might you expect from the following program?
- *    Answer: 95
+ *
+ *	SEE BELOW
+ *
  * By Faisal Saadatmand
  */
+
+ /* Answer: 95 */
 
 #include <stdio.h>
 
