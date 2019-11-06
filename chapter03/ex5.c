@@ -1,6 +1,8 @@
 /*
  * 5. What output would you expect from the following program?
+ * 
  *    Answer: d = d
+ *
  * By Faisal Saadatmand
  */
 
