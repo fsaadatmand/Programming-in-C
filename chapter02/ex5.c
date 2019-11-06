@@ -1,6 +1,17 @@
 /*
  * 5. Identify the syntactic errors in the following program. Then type in and
  * run the corrected program to ensure you have correctly identified.
+ *	 #include <stdio.h>
+ *	 int main (Void)
+ *	 (
+ *	 	INT  sum;
+ *	 	COMPUTE RESULT
+ *	 	sum = 25 + 37 - 19
+ *	 	DISPLAY RESULTS //
+ *	 	printf ("The answer is %i\n" sum);
+ *	 	return 0;
+ *	 }
+ *
  * By Faisal Saadatmand
  */
 
@@ -8,7 +19,7 @@
 
 int main(void) 
 {
-	int sum;               /* INT should be lowercase */
+	int sum; /* INT should be lowercase */
 
 	/* The comments' syntax was wrong */
 	/* COMPUTE RESULT */
