@@ -22,7 +22,7 @@ Cheers!
 - [Chapter 11. Operations on Bits](chapter11)
 - [Chapter 12. The Preprocessor](chapter12)
 - [Chapter 13. Extending Data Types with Enumerated Data Type, Type Definitions, and Type conversions](chapter13)
-- [Chapter 14. Working with larger Programs](chapter14)
+- Chapter 14. Working with larger Programs - no exercise
 - [Chapter 15. Input and Output Operations in C](chapter15)
 - [Chapter 16. Miscellaneous and Advanced Features](chapter16)
 - [Chapter 17. Debugging Programs](chapter17)
