@@ -14,7 +14,7 @@ int main(void)
 {
 	int i, j, factorial;
 
-	for (i = 1; i < 11; ++i) {
+	for (i = 0; i < 10; ++i) {
 		factorial = 1;
 		for (j = i; j > 0; --j)
 			factorial *= j;
