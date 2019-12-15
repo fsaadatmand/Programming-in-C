@@ -1,7 +1,8 @@
 /* 
  * 7. Write a function called insertString() to insert one character string
  * into another string. The arguments to the function should consist of the
- * source string, the string to be inserted, and the position in the
+ * source string, the string to be inserted, and the and the position in the
+ * source string where the string is to be inerted. So, the call
  *
  *		insertString (text, "per", 10);
  *
@@ -10,8 +11,8 @@
  * Therefore, the character string "the wrong person" is stored inside the text
  * array after the function returned.
  *
- * by Faisal Saadatmand
- * */
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 
@@ -19,19 +20,25 @@ void insertString(char [], const char [], int);
 
 void insertString(char source[], const char str[], int pos)
 {
-	int i , len, offset, end;
+	int i, str_len, src_len;
 
 	/* find the length of str */
-	for (len = 0; str[len] != '\0'; ++len)
+	for (i = 0; str[i] != '\0'; ++i)
 		;
+	str_len = i;
 
-	/* copy characters starting at pos to the right by offset value */
-	offset = end = pos + len;
-	for (i = pos; i < end; ++i, ++offset)
-		source[offset] = source[i];
+	/* find the length of source */
+	for (i = 0; source[i] != '\0'; ++i)
+		;
+	src_len = i;
+
+	/* make room for str by 'moving' characters from the end of source
+	 * (including '\0') to right by a distance equal to str_len */
+	for (i = src_len; i >= pos; --i)
+		source[i + str_len] = source[i];
 
 	/* copy str into source starting at pos */
-	for (i = 0; str[i] != '\0'; ++i, ++pos)
+	for (i = 0; pos < src_len && str[i] != '\0'; ++i, ++pos)
 		source[pos] = str[i];
 }
 
