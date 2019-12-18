@@ -18,21 +18,25 @@
 
 void removeString(char [], int, int);
 
-void removeString(char source[], int pos, int count)
+void removeString(char source[], int pos, int n)
 {	
-	int i;
+	int i, len;
 
-	for (i = pos + count; source[i] != '\0'; ++i, ++pos)
-		/* copy characters to from index i to pos */
-		source[pos] = source[i];
-	source[pos] = '\0';
+	/* find the length of str */
+	for (i = 0; source[i] != '\0'; ++i)
+		;
+	len = i;
+
+	/* copy characters (including '\0') to from index i to pos  */
+	for (i = pos + n; i <= len; ++i)
+		source[pos++] = source[i];
 }
 
 int main(void) 
 {	
 	char str[] = "the wrong son";
 
-	removeString(str, 4, 6);
+	removeString(str, 4 , 6);
 	printf("%s\n", str); 
 
 	return 0;
