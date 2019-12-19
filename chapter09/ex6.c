@@ -16,20 +16,29 @@
 
 #include <stdio.h>
 
+/* functions */
 void removeString(char [], int, int);
+int stringLength(const char []);
 
-void removeString(char source[], int pos, int n)
+/* removeString: remove n characters from string s, starting at pos */
+void removeString(char s[], int pos, int n)
 {	
 	int i, len;
 
-	/* find the length of str */
-	for (i = 0; source[i] != '\0'; ++i)
-		;
-	len = i;
-
-	/* copy characters (including '\0') to from index i to pos  */
+	/* copy characters (including '\0') from index i to pos */
+	len = stringLength(s);
 	for (i = pos + n; i <= len; ++i)
-		source[pos++] = source[i];
+		s[pos++] = s[i];
+}
+
+/* stringLength: return the length of string s */
+int stringLength(const char s[])
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; ++i)
+		;
+	return i;
 }
 
 int main(void) 
