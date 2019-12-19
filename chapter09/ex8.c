@@ -8,9 +8,8 @@
  * and that replaces s1 inside source with the character string s2. The
  * function should call the findString() function to locate s1 inside source,
  * then call the removeString() function to remove s1 from source, and finally
- * call the insertString() function to insert s2 source, and finally call the
- * insertString() function to insert s2 into source at the proper location.
- * So, the function call
+ * call the insertString() function to insert s2 into source at the proper
+ * location. So, the function call
  *
  *		replaceString (text, "1", "one");
  *
@@ -22,79 +21,101 @@
  * has the effect of removing the first asterisk inside the text array because
  * the replacement string is the null string.
  *
- * by Faisal Saadatmand
- * */
+ * By Faisal Saadatmand
+ */
 
 #include <stdio.h>
 
+#define MAXLEN 1000
+
 /* functions */
-void insertString(char [], const char [], int);
-void removeString(char [], int, int);
-int findString(const char [], const char []);
 void replaceString(char [], const char [], const char []);
+int  findString(const char [], const char []);
+void removeString(char [], int, int);
+void insertString(char [], const char [], int);
+int  stringLength(const char []);
 
-void insertString(char source[], const char str[], int pos)
+/* replaceString: replace string s1 with string s2 in string source. */
+void replaceString(char source[], const char s1[], const char s2[])
 {
-	int i , len, offset, end;
+	int len, pos;
 
-	/* find the length of str */
-	for (len = 0; str[len] != '\0'; ++len)
-		;
-
-	/* copy characters starting at pos to the right by offset value */
-	offset = end = pos + len;
-	for (i = pos; i < end; ++i, ++offset)
-		source[offset] = source[i];
-
-	/* copy str into source starting at pos */
-	for (i = 0; str[i] != '\0'; ++i, ++pos)
-		source[pos] = str[i];
+	len = stringLength(s1);
+	if ((pos = findString(source, s1)) < 0)
+		return; // no match found
+	removeString(source, pos, len);
+	insertString(source, s2, pos);
 }
 
-void removeString(char source[], int pos, int count)
-{	
-	int i;
-
-	for (i = pos + count; source[i] != '\0'; ++i, ++pos)
-		/* copy characters to from index i to pos */
-		source[pos] = source[i];
-	source[pos] = '\0';
-}
-
-/* findString: to determine if one character string exists inside another
- * string */
-int findString(const char source[], const char sought[])
+/* findString: return string t index position in string s if found, otherwise
+ * return -1 */
+int findString(const char s[], const char t[])
 {
 	int i, j, k;
 
-	for (i = 0; source[i] != '\0'; ++i) {
-		for (j = i, k = 0; source[j] == sought[k]; ++j, ++k)
+	for (i = 0; s[i] != '\0'; ++i) {
+		for (j = i, k = 0; s[j] != '\0' && s[j] == t[k]; ++j, ++k)
 			;
-		if (sought[k] == '\0') // match is found if sought reached end
-			return i; // return match position in source
+		if (t[k] == '\0') /* found match */
+			return i; /* return position of match */
 	}
-	return -1;
+	return -1; /* match not found */
 }		
 
-void replaceString(char source[], const char s1[], const char s2[])
+/* removeString: remove n characters from string s, starting at pos */
+void removeString(char s[], int pos, int n)
+{	
+	int i, len;
+
+	/* copy characters (including '\0') from index i to pos */
+	len = stringLength(s);
+	for (i = pos + n; i <= len; ++i)
+		s[pos++] = s[i];
+}
+
+/* insertString: insert string t into string s at index pos */
+void insertString(char s[], const char t[], int pos)
 {
-	int i, pos;
+	int i, s_len, offset;
 
-	for (i = 0; s1[i] != '\0'; ++i)
+	s_len = stringLength(s);
+	/* check if pos is within the range of s */
+	if (pos > s_len)
+		return; // do nothing 
+
+	/* make room for t by 'moving' characters (including '\0') from the end
+	 * of s to the right by a distance equal to s_len */
+	offset = stringLength(t);
+	for (i = s_len + 1; i >= pos; --i)
+		s[i + offset] = s[i];
+
+	/* copy t into s starting at pos */
+	for (i = 0; t[i] != '\0'; ++i, ++pos)
+		s[pos] = t[i];
+}
+
+/* stringLength: return the length of string s */
+int stringLength(const char s[])
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; ++i)
 		;
-
-	pos = findString(source, s1);
-	removeString(source, pos, i);
-	insertString(source, s2, pos);
+	return i;
 }
 
 int main(void) 
 {
-	char text[] = "0123456789 ten *eleven.";
+	char text[MAXLEN] = "0123456789 ten *eleven.";
 
 	replaceString(text, "1", "one");
 	replaceString(text, "ten", "10");
 	replaceString(text, "*", "");
+	replaceString(text, "eleven", "11");
+	replaceString(text, "0", "");
+	replaceString(text, "bee", "11"); /* bee is not in text */
+	replaceString(text, ".", "");
+	replaceString(text, " ", "");
 	printf("%s\n", text);
 
 	return 0;
