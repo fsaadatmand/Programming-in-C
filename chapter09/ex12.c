@@ -27,8 +27,8 @@ float strToFloat(const char str[])
 	float number, divisor;
 	bool negative = false;
 
-	/* skip leading whitespaces */
-	for (i = 0; str[i] == ' '; ++i)
+	/* skip leading whitespace */
+	for (i = 0; str[i] == ' ' || str[i] == '\t'; ++i)
 		;
 
 	/* handle negative numbers */
