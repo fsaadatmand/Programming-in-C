@@ -16,7 +16,8 @@ int strToInt(const char string[])
 	int  i, digit, number = 0;
 	bool negative = false;
 
-	for (i = 0; string[i] == ' '; ++i) /* skip leading whitespaces */
+	/* skip leading whitespace */
+	for (i = 0; string[i] == ' ' || string[i] == '\t'; ++i)
 		;
 
 	if (string[i] == '-') {
@@ -29,7 +30,7 @@ int strToInt(const char string[])
 		number = number * 10 + digit;
 	}
 
-	if (negative)
+	if (negative == true)
 		number *= -1;
 
 	return number;
@@ -38,9 +39,11 @@ int strToInt(const char string[])
 int main(void) 
 {
 	printf("%i\n", strToInt("-245"));
-	printf("%i\n", strToInt("100") + 25);
-	printf("%i\n", strToInt("13x5"));
+	printf("%i\n", strToInt(" 100") + 25);
+	printf("%i\n", strToInt("\t13x5"));
 	printf("%i\n", strToInt("xxx"));
+	printf("%i\n", strToInt("2147483647"));
+	printf("%i\n", strToInt("-2147483648"));
 
 	return 0;
 }
