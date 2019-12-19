@@ -16,35 +16,46 @@
 
 #include <stdio.h>
 
+#define MAXLEN 1000
+
+/* functions */
 void insertString(char [], const char [], int);
+int stringLength(const char []);
 
-void insertString(char source[], const char str[], int pos)
+/* insertString: insert string t into string s at index pos */
+void insertString(char s[], const char t[], int pos)
 {
-	int i, str_len, src_len;
+	int i, s_len, offset;
 
-	/* find the length of str */
-	for (i = 0; str[i] != '\0'; ++i)
+	s_len = stringLength(s);
+	/* check if pos is within the range of s */
+	if (pos > s_len)
+		return; // do nothing 
+
+	/* make room for str by 'moving' characters (including '\0') from the end
+	 * of s to the right by a distance equal to s_len */
+	offset = stringLength(t);
+	for (i = s_len + 1; i >= pos; --i)
+		s[i + offset] = s[i];
+
+	/* copy str into s starting at pos */
+	for (i = 0; t[i] != '\0'; ++i, ++pos)
+		s[pos] = t[i];
+}
+
+/* stringLength: return the length of string s */
+int stringLength(const char s[])
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; ++i)
 		;
-	str_len = i;
-
-	/* find the length of source */
-	for (i = 0; source[i] != '\0'; ++i)
-		;
-	src_len = i;
-
-	/* make room for str by 'moving' characters from the end of source
-	 * (including '\0') to right by a distance equal to str_len */
-	for (i = src_len; i >= pos; --i)
-		source[i + str_len] = source[i];
-
-	/* copy str into source starting at pos */
-	for (i = 0; pos < src_len && str[i] != '\0'; ++i, ++pos)
-		source[pos] = str[i];
+	return i;
 }
 
 int main(void) 
 {
-	char text[30] = "the wrong son";
+	char text[MAXLEN] = "the wrong son";
 	
 	insertString(text, "per", 10);
 	printf("%s\n", text);
