@@ -16,7 +16,7 @@ int main(void)
 
 	for (i = 0; i < 10; ++i) {
 		factorial = 1;
-		for (j = i; j > 0; --j)
+		for (j = i; j > 1; --j)
 			factorial *= j;
 		printf("%2i! = %d\n", i, factorial);
 	}
