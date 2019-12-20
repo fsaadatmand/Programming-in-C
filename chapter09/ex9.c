@@ -32,12 +32,11 @@ int  stringLength(const char []);
  * true if the replacement succeeded and false if not. */
 bool replaceString(char source[], const char s1[], const char s2[])
 {
-	int len, pos;
+	int pos;
 
-	len = stringLength(s1);
 	if ((pos = findString(source, s1)) < 0)
 		return false; // no match found
-	removeString(source, pos, len);
+	removeString(source, pos, stringLength(s1));
 	insertString(source, s2, pos);
 	return true;
 }
@@ -78,8 +77,8 @@ void insertString(char s[], const char t[], int pos)
 	if (pos > s_len)
 		return; // do nothing 
 
-	/* make room for t by 'moving' characters (including '\0') from the end
-	 * of s to the right by a distance equal to s_len */
+	/* make room for t by 'moving' characters (including '\0') from the end of
+	 * s to the right by a distance equal to s_len */
 	offset = stringLength(t);
 	for (i = s_len + 1; i >= pos; --i)
 		s[i + offset] = s[i];
@@ -104,9 +103,9 @@ int main(void)
 	char text[MAXLEN] = "0123456789 ten *eleven.";
 	bool stillFound = false;
 
- 	do
- 	stillFound = replaceString (text, " ", "");
- 	while  ( stillFound );
+	do {
+		stillFound = replaceString(text, " ", "");
+	} while (stillFound);
 	printf("%s\n", text);
 
 	return 0;
