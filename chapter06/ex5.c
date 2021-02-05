@@ -5,8 +5,9 @@
  */
 
  /*
-  * Answer: this program generate the first 10 numbers in the Fibonacci
-  * sequence.
+  * Answer:
+  * This program generates the first 10 numbers in base 2 number system:
+  * 	2^(n-1), 0 <= n < 10
   */
 
 #include <stdio.h>
