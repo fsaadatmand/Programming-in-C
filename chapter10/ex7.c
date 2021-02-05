@@ -10,19 +10,27 @@
 
 #define SIZE 16
 
-void sort(int *, int);
+void sort(int *, const size_t);
+void swap(int *, int *);
 
-void sort(int *p, int n)
+void swap(int *a, int *b)
 {
-	int *q, *const end = p + n, temp;
+	int temp;
 
-	for ( ; p < end; ++p)
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void sort(int *p, const size_t n)
+{
+	int *q;
+	int *const end = p + n;
+
+	for (; p < end; ++p)
 		for (q = p + 1; q < end; ++q)
-			if (*p > *q) {
-				temp = *p;
-				*p = *q;
-				*q = temp;
-			}
+			if (*p > *q)
+				swap(p, q);
 }
 
 int main (void) 
