@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 
+/* types */
 struct entry {
 	int value;
 	struct entry *next;
@@ -69,7 +70,7 @@ int main(void)
 	struct entry n0 = {0, &n1};
 	/* remove entry after n0, i.e. n1 */
 	removeEntry(&n0);
-	/* update list_pointer to point the new first element, i.e. n2 */
+	/* update list_pointer to point to the new first element, i.e. n2 */
 	list_pointer = n0.next; 
 
 	print_list(list_pointer);
